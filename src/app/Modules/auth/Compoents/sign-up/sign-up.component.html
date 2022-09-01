@@ -1,0 +1,108 @@
+
+<div class="wrapper">
+  <div class="side left">
+    <div class="image dog"></div>
+
+  </div>
+
+  <div class="side right">
+    <div class="col-12" style="margin-top: 100px;">
+      <div class="flex justify-content-center flex-wrap">
+        <h2> Sign Up</h2>
+      </div>
+      <hr style="height:1px;border-width:0;color:gray;background-color:gray">
+      <div class="flex justify-content-center flex-wrap">
+        <h2>Explore the World!</h2>
+      </div>
+      <div class="grid">
+        <div class="col-6">
+          <mat-form-field appearance="outline" style="width: 300px;">
+            <mat-label>First Name</mat-label>
+            <input type="email" matInput placeholder="First Name">
+            <mat-icon matSuffix>email</mat-icon>
+            <mat-error *ngIf="SignUpForm.controls['email'].hasError('required')">
+              <div>Please Enter Email</div>
+            </mat-error>
+            <mat-error *ngIf="SignUpForm.controls['email'].hasError('email')">
+              <div>Please Enter Valid Email</div>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-6">
+          <mat-form-field appearance="outline" style="width: 300px;">
+            <mat-label>Last Name</mat-label>
+            <input type="email" matInput placeholder="Last Name">
+            <mat-icon matSuffix>email</mat-icon>
+            <mat-error *ngIf="SignUpForm.controls['email'].hasError('required')">
+              <div>Please Enter Email</div>
+            </mat-error>
+            <mat-error *ngIf="SignUpForm.controls['email'].hasError('email')">
+              <div>Please Enter Valid Email</div>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-6">
+          <mat-form-field appearance="outline" style="width: 300px;">
+            <mat-label>Email</mat-label>
+            <input type="email" matInput placeholder="Email">
+            <mat-icon matSuffix>email</mat-icon>
+            <mat-error *ngIf="SignUpForm.controls['email'].hasError('required')">
+              <div>Please Enter Email</div>
+            </mat-error>
+            <mat-error *ngIf="SignUpForm.controls['email'].hasError('email')">
+              <div>Please Enter Valid Email</div>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-6">
+          <mat-form-field appearance="outline" style="width: 300px;">
+            <mat-label>Phone Number</mat-label>
+            <input type="email" matInput placeholder="Phone Number">
+            <mat-icon matSuffix>email</mat-icon>
+            <mat-error *ngIf="SignUpForm.controls['email'].hasError('required')">
+              <div>Please Enter Email</div>
+            </mat-error>
+            <mat-error *ngIf="SignUpForm.controls['email'].hasError('email')">
+              <div>Please Enter Valid Email</div>
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="col-6">
+          <mat-form-field appearance="outline" style="width: 300px;">
+            <mat-label>Confirm Password</mat-label>
+            <input type="email" matInput placeholder="Confirm Password">
+            <mat-icon matSuffix>email</mat-icon>
+            <mat-error *ngIf="SignUpForm.controls['email'].hasError('required')">
+              <div>Please Enter Email</div>
+            </mat-error>
+            <mat-error *ngIf="SignUpForm.controls['email'].hasError('email')">
+              <div>Please Enter Valid Email</div>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-6">
+          <mat-form-field appearance="outline" style="width: 300px;">
+            <mat-label>Password</mat-label>
+            <input type="email" matInput placeholder="Password">
+            <mat-icon matSuffix>email</mat-icon>
+            <mat-error *ngIf="SignUpForm.controls['email'].hasError('required')">
+              <div>Please Enter Email</div>
+            </mat-error>
+            <mat-error *ngIf="SignUpForm.controls['email'].hasError('email')">
+              <div>Please Enter Valid Email</div>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="flex justify-content-center flex-wrap">
+        <button style="width: 40%;" mat-raised-button color="primary" >Sign Up</button>
+      </div>
+
+      <div class="flex justify-content-center flex-wrap">
+        <p class="sign-up-link">Already Account? <a class="sign-up-link" routerLink="../sign-up"> Sign In</a></p>
+      </div>
+
+    </div>
+  </div>
+</div>

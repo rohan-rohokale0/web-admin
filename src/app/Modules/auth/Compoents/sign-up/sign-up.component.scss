@@ -1,0 +1,58 @@
+.wrapper .left {
+  width: 100%;
+  height: 40vh;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wrapper .right {
+  width: 100%;
+  height: 40vh;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+}
+
+.wrapper .image {
+  width: 100%;
+  height: 90%;
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  margin-top: 30px;
+  top: 0;
+  left: 0;
+}
+
+.link {
+  color: black;
+}
+.sign-up-link {
+  color: black;
+  padding-top: 10px;
+}
+
+
+.dog {
+  background: url("../../../../../assets/transparent-desk-furniture-computer-desk-table-conversation-children-and-parents-freely-share-content-and-ide5da92f31e2afc6.0310129215713687539285.png");
+}
+
+@media screen and (min-width: 1200px) {
+  .wrapper {
+    display: flex;
+  }
+
+  .wrapper .left {
+    width: 50%;
+    height: 100vh;
+  }
+
+  .wrapper .right {
+    width: 50%;
+    height: 100vh;
+  }
+
+}

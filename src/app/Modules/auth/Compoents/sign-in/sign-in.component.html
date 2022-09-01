@@ -1,0 +1,60 @@
+<div class="flex col-12">
+  <mat-card class="card col-6 center">
+    <div class="grid">
+      <div class="col-12 md:col-6">
+        <img width="100%" height="100%"
+          src="../../../../../assets/transparent-desk-furniture-computer-desk-table-conversation-children-and-parents-freely-share-content-and-ide5da92f31e2afc6.0310129215713687539285.png">
+      </div>
+
+      <div class="col-12 md:col-6">
+        <div class="flex justify-content-center flex-wrap">
+          <h2> LOGIN IN</h2>
+        </div>
+        <hr style="height:1px;border-width:0;color:gray;background-color:gray">
+        <div class="flex justify-content-center flex-wrap">
+          <h2>Explore the World!</h2>
+        </div>
+        <form [formGroup]="SignInForm">
+          <div class="flex justify-content-center flex-wrap">
+            <div class="col-8">
+              <mat-form-field appearance="outline" style="width: 120%;">
+                <mat-label>Email</mat-label>
+                <input type="email" matInput placeholder="Email" formControlName="email">
+                <mat-icon matSuffix>email</mat-icon>
+                <mat-error *ngIf="SignInForm.controls['email'].hasError('required')">
+                  <div>Please Enter Email</div>
+                </mat-error>
+                <mat-error *ngIf="SignInForm.controls['email'].hasError('email')">
+                  <div>Please Enter Valid Email</div>
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <div class="col-8">
+              <mat-form-field appearance="outline" style="width: 120%;">
+                <mat-label>Password</mat-label>
+                <input type="{{(showPassword === false)?'password':'text'}}" matInput placeholder="Password"
+                  formControlName="password">
+                <mat-icon matSuffix style="cursor: pointer;" (click)="toggleShowPassword()">
+                  {{!showPassword?'visibility_off':'visibility'}}</mat-icon>
+                <mat-error *ngIf="SignInForm.controls['email'].hasError('required')">
+                  <div>Please Enter Password</div>
+                </mat-error>
+              </mat-form-field>
+
+            </div>
+          </div>
+          <div class="flex justify-content-end flex-wrap forgot-password-link">
+            <p><a class="link" href="#">Forgot Password</a></p>
+          </div>
+          <div class="flex justify-content-center flex-wrap">
+            <button style="width: 40%;" mat-raised-button color="primary" (click)="login()">Sign In</button>
+          </div>
+
+          <div class="flex justify-content-center flex-wrap">
+            <p class="sign-up-link">Create New Account? <a class="sign-up-link" routerLink="../sign-up"> Sign Up</a></p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </mat-card>
+</div>
