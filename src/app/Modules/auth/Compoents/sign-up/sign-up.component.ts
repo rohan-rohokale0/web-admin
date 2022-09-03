@@ -7,7 +7,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./sign-up.component.scss']
 })
 export class SignUpComponent implements OnInit {
-  SignUpForm!: FormGroup;
+  signUpForm!: FormGroup;
   showPassword = false;
 
   constructor(private formBuilder: FormBuilder) { }
@@ -16,9 +16,13 @@ export class SignUpComponent implements OnInit {
     this.initForm();
   }
   initForm() {
-    this.SignUpForm = this.formBuilder.group(
+    this.signUpForm = this.formBuilder.group(
       {
+        firstName: ['', [Validators.required]],
+        lastName: ['', [Validators.required]],
+        phoneNumber: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10)]],
         email: ['', [Validators.required, Validators.email]],
+        confirmPassword: ['', [Validators.required]],
         password: ['', [Validators.required]]
       })
   }
