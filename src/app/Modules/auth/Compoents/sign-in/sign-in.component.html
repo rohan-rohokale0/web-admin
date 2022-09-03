@@ -36,7 +36,7 @@
                   formControlName="password">
                 <mat-icon matSuffix style="cursor: pointer;" (click)="toggleShowPassword()">
                   {{!showPassword?'visibility_off':'visibility'}}</mat-icon>
-                <mat-error *ngIf="SignInForm.controls['email'].hasError('required')">
+                <mat-error *ngIf="SignInForm.controls['Password'].hasError('required')">
                   <div>Please Enter Password</div>
                 </mat-error>
               </mat-form-field>
