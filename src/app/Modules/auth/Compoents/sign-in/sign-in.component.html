@@ -47,7 +47,7 @@
             <p><a class="link" href="#">Forgot Password</a></p>
           </div>
           <div class="flex justify-content-center flex-wrap">
-            <button style="width: 40%;" mat-raised-button color="primary" (click)="login()">Sign In</button>
+            <button style="width: 40%;" [disabled]="SignInForm.invalid" mat-raised-button color="primary" (click)="login()">Sign In</button>
           </div>
 
           <div class="flex justify-content-center flex-wrap">
