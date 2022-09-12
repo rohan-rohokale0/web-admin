@@ -35,7 +35,7 @@ export class SignInComponent implements OnInit {
     const password = this.SignInForm.controls['password'].value;
     debugger
     if ((email === 'rohanrohokale1234@gmail.com') && (password == '12345')) {
-      console.log("Welcome");
+      this.router.navigate(['admin/dashboard']);
     }
   }
 
