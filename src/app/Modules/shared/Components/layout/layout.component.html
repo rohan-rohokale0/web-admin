@@ -1,0 +1,18 @@
+<mat-toolbar color="primary" class="example-toolbar">
+  <h1 class="example-app-name">Nested Menus</h1>
+</mat-toolbar>
+<mat-sidenav-container class="example-container" autosize>
+  <mat-sidenav #sidenav class="example-sidenav" mode="side" opened="true">
+    <mat-nav-list>
+      <mat-list-item class="parent" *ngFor="let value of navBarMenu">
+        <span class="full-width">{{value.menuName}}</span>
+        <mat-icon mat-list-icon>{{value.icons}}</mat-icon>
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div class="content mat-elevation-z8">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

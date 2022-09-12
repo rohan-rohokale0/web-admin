@@ -53,7 +53,7 @@
           <div class="col-6">
             <mat-form-field appearance="outline" style="width: 330px;">
               <mat-label>Phone Number</mat-label>
-              <input type="text" matInput placeholder="Phone Number" minlength="10"
+              <input type="text" matInput placeholder="Phone Number" minlength="10" PhoneNumberDirective
               maxlength="10" formControlName="phoneNumber" >
               <mat-icon matSuffix>phone</mat-icon>
               <mat-error *ngIf="signUpForm.controls['phoneNumber'].hasError('required')">
@@ -91,7 +91,7 @@
           </div>
         </div>
         <div class="flex justify-content-center flex-wrap">
-          <button style="width: 40%;" mat-raised-button color="primary">Sign Up</button>
+          <button [disabled]="signUpForm.invalid" style="width: 40%;" mat-raised-button color="primary">Sign Up</button>
         </div>
 
         <div class="flex justify-content-center flex-wrap">

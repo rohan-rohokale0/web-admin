@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from '../../Services/auth.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -30,5 +31,19 @@ export class SignUpComponent implements OnInit {
     this.showPassword = !this.showPassword;
     console.log("this.showPassword", this.showPassword)
   }
+
+  // async register() {
+  //   const body =
+  //   {
+  //     email: this.signUpForm.controls['email'].value,
+  //     password: this.signUpForm.controls['password'].value
+  //   }
+  //   this.authService.register(body).then(res => {
+  //     console.log("account Successfully created!!");
+  //     debugger
+  //     console.log(res);
+  //   });
+  //   //this.sendEmailVerification();
+  // }
 
 }

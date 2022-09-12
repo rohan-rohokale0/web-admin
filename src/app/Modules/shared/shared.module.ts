@@ -4,11 +4,14 @@ import { MaterialModule } from './package_files/material_module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CardModule } from 'primeng/card';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
-
+import { PhoneNumberDirective } from './Direactives/phone-number.directive';
+import { LayoutComponent } from './Components/layout/layout.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    PhoneNumberDirective,
+    LayoutComponent,
+  ],
   imports: [
     CommonModule,
     MaterialModule,
@@ -17,7 +20,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  exports: [MaterialModule, CardModule, FormsModule,
+  exports: [MaterialModule, CardModule, FormsModule,PhoneNumberDirective,
     ReactiveFormsModule]
 })
 export class SharedModule {
@@ -26,7 +29,6 @@ export class SharedModule {
     return {
       ngModule: SharedModule,
       providers: [
-
       ]
     };
   }
