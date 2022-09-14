@@ -18,10 +18,14 @@ import { environment } from 'src/environments/environment';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from './Modules/auth/Services/auth.service';
 import { getAuth, provideAuth } from '@angular/fire/auth';
+import { WorkingComponent } from './working/working.component';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { MaterialModule } from './Modules/shared/package_files/material_module';
 
 @NgModule({
   declarations: [
     AppComponent,
+    WorkingComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,12 +36,14 @@ import { getAuth, provideAuth } from '@angular/fire/auth';
     ReactiveFormsModule,
     MatSidenavModule,
     MatToolbarModule,
-    // AngularFireModule.initializeApp(environment.firebaseConfig),
-    // AngularFireAuthModule,
-    // AngularFirestoreModule,
-    // AngularFireStorageModule,
-    // AngularFireDatabaseModule,
-    // HttpClientModule
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireAuthModule,
+    AngularFirestoreModule,
+    AngularFireStorageModule,
+    AngularFireDatabaseModule,
+    NgxChartsModule, MaterialModule
+
+
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

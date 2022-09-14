@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 import { AuthService } from '../../Services/auth.service';
 
 @Component({
@@ -11,7 +14,9 @@ export class SignUpComponent implements OnInit {
   signUpForm!: FormGroup;
   showPassword = false;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private authService: AuthService,
+    private router: Router, private matSnackBar: MatSnackBar,
+    private angularFireAuth: AngularFireAuth) { }
 
   ngOnInit(): void {
     this.initForm();
@@ -23,27 +28,61 @@ export class SignUpComponent implements OnInit {
         lastName: ['', [Validators.required]],
         phoneNumber: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10)]],
         email: ['', [Validators.required, Validators.email]],
-        confirmPassword: ['', [Validators.required]],
+        confirmPassword: ['', [Validators.required,]],
         password: ['', [Validators.required]]
-      })
+      }
+    )
   }
+
+
+
+
   toggleShowPassword() {
     this.showPassword = !this.showPassword;
     console.log("this.showPassword", this.showPassword)
   }
+  signUp() {
+    if (this.signUpForm.valid) {
+      if (this.signUpForm.controls['password'].value === this.signUpForm.controls['confirmPassword'].value) {
+        this.angularFireAuth.createUserWithEmailAndPassword(this.signUpForm.controls['email'].value, this.signUpForm.controls['password'].value)
+          .then((res: any): any => {
+            const result = {
+              firstName: this.signUpForm.controls['firstName'].value,
+              lastName: this.signUpForm.controls['lastName'].value,
+              email: this.signUpForm.controls['email'].value,
+              password: this.signUpForm.controls['password'].value,
+              createdAt: new Date().getTime(),
+              status: true,
+              userRole: '2'
+            };
+            this.authService.setCollectionDataById('DatabaseLogin', res.user.uid, result).then(() => {
+              const firstName = {
+                firstName: result.firstName,
+                lastName: result.lastName
+              };
+              sessionStorage.setItem('firstName', JSON.stringify(firstName));
+              this.matSnackBar.open(('Your account is successfully created, Please check email!'), 'close',
+                {
+                  duration: 5000
+                });
+              this.authService.verificationMail();
+              this.router.navigate(['/auth/sign-in'], { queryParams: { id: res.user.uid } });
+            }).catch(err => {
+              this.matSnackBar.open(err.message, 'close',
+                {
+                  duration: 5000
+                });
+            });
+          }).catch(err => {
+            this.matSnackBar.open(err.message, 'close',
+              {
+                duration: 5000
+              });
+          });
+      } else {
 
-  // async register() {
-  //   const body =
-  //   {
-  //     email: this.signUpForm.controls['email'].value,
-  //     password: this.signUpForm.controls['password'].value
-  //   }
-  //   this.authService.register(body).then(res => {
-  //     console.log("account Successfully created!!");
-  //     debugger
-  //     console.log(res);
-  //   });
-  //   //this.sendEmailVerification();
-  // }
+      }
+    }
+  }
 
 }

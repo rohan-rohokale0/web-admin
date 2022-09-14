@@ -1,0 +1,22 @@
+<mat-drawer-container>
+  <mat-drawer mode="side" opened="true">
+    <mat-nav-list>
+      <h2 matSubheader class="mt-2">WEB-ADMIN</h2>
+      <a mat-list-item routerLinkActive="list-item-active" routerLink="/admin/dashboard">
+        <mat-icon>dashboard</mat-icon> Dashboard
+      </a>
+      <a mat-list-item routerLinkActive="list-item-active" routerLink="/home">
+        <mat-icon>home</mat-icon> Home
+      </a>
+    </mat-nav-list>
+
+  </mat-drawer>
+  <mat-drawer-content>
+    <mat-toolbar color="primary" class="example-toolbar" fxLayout="column">
+      <h1 class="example-app-name">Nested Menus</h1>
+    </mat-toolbar>
+    <div class="content mat-elevation-z8">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-drawer-content>
+</mat-drawer-container>
