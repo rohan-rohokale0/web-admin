@@ -5,22 +5,25 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CardModule } from 'primeng/card';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PhoneNumberDirective } from './Direactives/phone-number.directive';
-import { LayoutComponent } from './Components/layout/layout.component';
+
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 @NgModule({
   declarations: [
     PhoneNumberDirective,
-    LayoutComponent,
+
   ],
   imports: [
     CommonModule,
     MaterialModule,
     CardModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxChartsModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  exports: [MaterialModule, CardModule, FormsModule,PhoneNumberDirective,
+  exports: [MaterialModule, CardModule, FormsModule, PhoneNumberDirective, NgxChartsModule,
+
     ReactiveFormsModule]
 })
 export class SharedModule {

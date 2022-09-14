@@ -14,7 +14,7 @@
       <form [formGroup]="signUpForm">
         <div class="grid">
           <div class="col-6">
-            <mat-form-field appearance="outline" style="width: 330px;">
+            <mat-form-field appearance="standard" style="width: 330px;">
               <mat-label>First Name</mat-label>
               <input type="text" matInput placeholder="First Name" formControlName="firstName">
               <mat-icon matSuffix>person icon</mat-icon>
@@ -26,7 +26,7 @@
           </div>
 
           <div class="col-6">
-            <mat-form-field appearance="outline" style="width: 330px;">
+            <mat-form-field appearance="standard" style="width: 330px;">
               <mat-label>Last Name</mat-label>
               <input type="text" matInput placeholder="Last Name" formControlName="lastName">
               <mat-icon matSuffix>person icon</mat-icon>
@@ -37,7 +37,7 @@
           </div>
 
           <div class="col-6">
-            <mat-form-field appearance="outline" style="width: 330px;">
+            <mat-form-field appearance="standard" style="width: 330px;">
               <mat-label>Email</mat-label>
               <input type="email" matInput placeholder="Email" formControlName="email">
               <mat-icon matSuffix>email</mat-icon>
@@ -51,10 +51,10 @@
           </div>
 
           <div class="col-6">
-            <mat-form-field appearance="outline" style="width: 330px;">
+            <mat-form-field appearance="standard" style="width: 330px;">
               <mat-label>Phone Number</mat-label>
-              <input type="text" matInput placeholder="Phone Number" minlength="10" PhoneNumberDirective
-              maxlength="10" formControlName="phoneNumber" >
+              <input type="text" matInput placeholder="Phone Number" minlength="10" PhoneNumberDirective maxlength="10"
+                formControlName="phoneNumber">
               <mat-icon matSuffix>phone</mat-icon>
               <mat-error *ngIf="signUpForm.controls['phoneNumber'].hasError('required')">
                 <div>Please Enter Phone Number</div>
@@ -66,19 +66,7 @@
           </div>
 
           <div class="col-6">
-            <mat-form-field appearance="outline" style="width: 330px;">
-              <mat-label>Confirm Password</mat-label>
-              <input type="{{(showPassword === false)?'password':'text'}}" matInput placeholder="Confirm Password"
-                formControlName="confirmPassword">
-              <mat-icon matSuffix style="cursor: pointer;" (click)="toggleShowPassword()">
-                {{!showPassword?'visibility_off':'visibility'}}</mat-icon>
-              <mat-error *ngIf="signUpForm.controls['confirmPassword'].hasError('required')">
-                <div>Please Enter Confirm Password</div>
-              </mat-error>
-            </mat-form-field>
-          </div>
-          <div class="col-6">
-            <mat-form-field appearance="outline" style="width: 330px;">
+            <mat-form-field appearance="standard" style="width: 330px;">
               <mat-label>Password</mat-label>
               <input type="{{(showPassword === false)?'password':'text'}}" matInput placeholder="Password"
                 formControlName="password">
@@ -89,9 +77,25 @@
               </mat-error>
             </mat-form-field>
           </div>
+
+          <div class="col-6">
+            <mat-form-field appearance="standard" style="width: 330px;">
+              <mat-label>Confirm Password</mat-label>
+              <input type="{{(showPassword === false)?'password':'text'}}" matInput placeholder="Confirm Password"
+                formControlName="confirmPassword">
+              <mat-icon matSuffix style="cursor: pointer;" (click)="toggleShowPassword()">
+                {{!showPassword?'visibility_off':'visibility'}}</mat-icon>
+              <mat-error *ngIf="signUpForm.controls['confirmPassword'].hasError('required')">
+                <div>Please Enter Confirm Password</div>
+              </mat-error>
+
+            </mat-form-field>
+          </div>
+
         </div>
         <div class="flex justify-content-center flex-wrap">
-          <button [disabled]="signUpForm.invalid" style="width: 40%;" mat-raised-button color="primary">Sign Up</button>
+          <button [disabled]="signUpForm.invalid" style="width: 40%;" mat-raised-button color="primary"
+            (click)="signUp()">Sign Up</button>
         </div>
 
         <div class="flex justify-content-center flex-wrap">

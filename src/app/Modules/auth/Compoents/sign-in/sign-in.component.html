@@ -17,7 +17,7 @@
         <form [formGroup]="SignInForm">
           <div class="flex justify-content-center flex-wrap">
             <div class="col-8">
-              <mat-form-field appearance="outline" style="width: 120%;">
+              <mat-form-field appearance="standard" style="width: 120%;">
                 <mat-label>Email</mat-label>
                 <input type="email" matInput placeholder="Email" formControlName="email">
                 <mat-icon matSuffix>email</mat-icon>
@@ -30,7 +30,7 @@
               </mat-form-field>
             </div>
             <div class="col-8">
-              <mat-form-field appearance="outline" style="width: 120%;">
+              <mat-form-field appearance="standard" style="width: 120%;">
                 <mat-label>Password</mat-label>
                 <input type="{{(showPassword === false)?'password':'text'}}" matInput placeholder="Password"
                   formControlName="password">
@@ -47,7 +47,7 @@
             <p><a class="link" href="#">Forgot Password</a></p>
           </div>
           <div class="flex justify-content-center flex-wrap">
-            <button style="width: 40%;" mat-raised-button color="primary" (click)="login()">Sign In</button>
+            <button style="width: 40%;" [disabled]="SignInForm.invalid" mat-raised-button color="primary" (click)="login()">Sign In</button>
           </div>
 
           <div class="flex justify-content-center flex-wrap">
