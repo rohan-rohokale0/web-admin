@@ -1,3 +1,4 @@
+<mat-card class="card col-12">
 <div class="wrapper">
   <div class="side left">
     <div class="image dog"></div>
@@ -12,9 +13,9 @@
         <h2>Explore the World!</h2>
       </div>
       <form [formGroup]="signUpForm">
-        <div class="grid">
+        <div class="grid container">
           <div class="col-6">
-            <mat-form-field appearance="standard" style="width: 330px;">
+            <mat-form-field appearance="standard" style="width: 100%;">
               <mat-label>First Name</mat-label>
               <input type="text" matInput placeholder="First Name" formControlName="firstName">
               <mat-icon matSuffix>person icon</mat-icon>
@@ -26,7 +27,7 @@
           </div>
 
           <div class="col-6">
-            <mat-form-field appearance="standard" style="width: 330px;">
+            <mat-form-field appearance="standard" style="width: 100%;">
               <mat-label>Last Name</mat-label>
               <input type="text" matInput placeholder="Last Name" formControlName="lastName">
               <mat-icon matSuffix>person icon</mat-icon>
@@ -37,7 +38,7 @@
           </div>
 
           <div class="col-6">
-            <mat-form-field appearance="standard" style="width: 330px;">
+            <mat-form-field appearance="standard" style="width: 100%;">
               <mat-label>Email</mat-label>
               <input type="email" matInput placeholder="Email" formControlName="email">
               <mat-icon matSuffix>email</mat-icon>
@@ -51,7 +52,7 @@
           </div>
 
           <div class="col-6">
-            <mat-form-field appearance="standard" style="width: 330px;">
+            <mat-form-field appearance="standard"style="width: 100%;">
               <mat-label>Phone Number</mat-label>
               <input type="text" matInput placeholder="Phone Number" minlength="10" PhoneNumberDirective maxlength="10"
                 formControlName="phoneNumber">
@@ -66,7 +67,7 @@
           </div>
 
           <div class="col-6">
-            <mat-form-field appearance="standard" style="width: 330px;">
+            <mat-form-field appearance="standard" style="width: 100%;">
               <mat-label>Password</mat-label>
               <input type="{{(showPassword === false)?'password':'text'}}" matInput placeholder="Password"
                 formControlName="password">
@@ -79,7 +80,7 @@
           </div>
 
           <div class="col-6">
-            <mat-form-field appearance="standard" style="width: 330px;">
+            <mat-form-field appearance="standard" style="width: 100%;">
               <mat-label>Confirm Password</mat-label>
               <input type="{{(showPassword === false)?'password':'text'}}" matInput placeholder="Confirm Password"
                 formControlName="confirmPassword">
@@ -107,3 +108,4 @@
 
   </div>
 </div>
+</mat-card>
