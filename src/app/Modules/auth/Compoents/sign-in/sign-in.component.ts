@@ -3,6 +3,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { AuthService } from '../../Services/auth.service';
 
 @Component({
@@ -16,7 +17,7 @@ export class SignInComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder, private router: Router, private authService: AuthService,
     private angularFireAuth: AngularFireAuth,
-    private matSnackBar: MatSnackBar) { }
+    private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.initForm();
@@ -55,30 +56,19 @@ export class SignInComponent implements OnInit {
                   if (data.userRole === '2') {
                     this.router.navigate(['/admin/dashboard']);
                   }
+                  this.toastr.success('You successfully logged in!');
                 }
               }
             });
-            this.matSnackBar.open('You successfully logged in!'), 'close',
-            {
-              duration: 5000
-            };
+
           } else {
-            this.matSnackBar.open('Your email is not Verified. Please verify'), 'close',
-            {
-              duration: 5000
-            };
+            this.toastr.error('Your email is not Verified. Please verify');
           }
         })
         .catch((err: any) => {
           //  this.spinner.hide();
-          this.matSnackBar.open(err.message, 'close',
-            {
-              duration: 5000
-            });
+          this.toastr.error(err.message);
         });
-    } else {
-      //this.errorBindingService.getFormValidationErrors(this.signInForm);
-      //this.spinner.hide();
     }
   }
 

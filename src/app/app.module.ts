@@ -21,6 +21,7 @@ import { getAuth, provideAuth } from '@angular/fire/auth';
 import { WorkingComponent } from './working/working.component';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { MaterialModule } from './Modules/shared/package_files/material_module';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -41,9 +42,12 @@ import { MaterialModule } from './Modules/shared/package_files/material_module';
     AngularFirestoreModule,
     AngularFireStorageModule,
     AngularFireDatabaseModule,
-    NgxChartsModule, MaterialModule
-
-
+    NgxChartsModule, MaterialModule,
+    ToastrModule.forRoot({
+      timeOut: 5000,
+      positionClass: "toast-bottom-center",
+      preventDuplicates: true,
+    })
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
