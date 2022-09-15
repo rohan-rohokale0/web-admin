@@ -22,6 +22,7 @@ import { WorkingComponent } from './working/working.component';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { MaterialModule } from './Modules/shared/package_files/material_module';
 import { ToastrModule } from 'ngx-toastr';
+import { NgxSpinnerModule } from "ngx-spinner";
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { ToastrModule } from 'ngx-toastr';
     AngularFireStorageModule,
     AngularFireDatabaseModule,
     NgxChartsModule, MaterialModule,
+    NgxSpinnerModule.forRoot({ type: 'square-jelly-box' }),
     ToastrModule.forRoot({
       timeOut: 5000,
       positionClass: "toast-bottom-center",

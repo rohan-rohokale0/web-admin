@@ -3,6 +3,8 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { ToastrService } from 'ngx-toastr';
 import { AuthService } from '../../Services/auth.service';
 
 @Component({
@@ -15,7 +17,8 @@ export class SignUpComponent implements OnInit {
   showPassword = false;
 
   constructor(private formBuilder: FormBuilder, private authService: AuthService,
-    private router: Router, private matSnackBar: MatSnackBar,
+    private router: Router, private matSnackBar: MatSnackBar,private toastr: ToastrService,
+    private spinner: NgxSpinnerService,
     private angularFireAuth: AngularFireAuth) { }
 
   ngOnInit(): void {
@@ -41,8 +44,10 @@ export class SignUpComponent implements OnInit {
     this.showPassword = !this.showPassword;
     console.log("this.showPassword", this.showPassword)
   }
+  
   signUp() {
     if (this.signUpForm.valid) {
+      this.spinner.show();
       if (this.signUpForm.controls['password'].value === this.signUpForm.controls['confirmPassword'].value) {
         this.angularFireAuth.createUserWithEmailAndPassword(this.signUpForm.controls['email'].value, this.signUpForm.controls['password'].value)
           .then((res: any): any => {
@@ -61,6 +66,7 @@ export class SignUpComponent implements OnInit {
                 lastName: result.lastName
               };
               sessionStorage.setItem('firstName', JSON.stringify(firstName));
+              this.spinner.hide();
               this.matSnackBar.open(('Your account is successfully created, Please check email!'), 'close',
                 {
                   duration: 5000
@@ -68,6 +74,7 @@ export class SignUpComponent implements OnInit {
               this.authService.verificationMail();
               this.router.navigate(['/auth/sign-in'], { queryParams: { id: res.user.uid } });
             }).catch(err => {
+              this.spinner.hide();
               this.matSnackBar.open(err.message, 'close',
                 {
                   duration: 5000

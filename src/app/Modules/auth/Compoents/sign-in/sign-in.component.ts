@@ -3,6 +3,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from '../../Services/auth.service';
 
@@ -16,7 +17,7 @@ export class SignInComponent implements OnInit {
   SignInForm!: FormGroup;
 
   constructor(private formBuilder: FormBuilder, private router: Router, private authService: AuthService,
-    private angularFireAuth: AngularFireAuth,
+    private angularFireAuth: AngularFireAuth, private spinner: NgxSpinnerService,
     private toastr: ToastrService) { }
 
   ngOnInit(): void {
@@ -39,6 +40,7 @@ export class SignInComponent implements OnInit {
 
   login() {
     if (this.SignInForm.valid) {
+      this.spinner.show();
       this.angularFireAuth.signInWithEmailAndPassword(this.SignInForm.controls['email'].value, this.SignInForm.controls['password'].value)
         .then((result: any) => {
           if (result.user.emailVerified) {
@@ -56,17 +58,20 @@ export class SignInComponent implements OnInit {
                   if (data.userRole === '2') {
                     this.router.navigate(['/admin/dashboard']);
                   }
+                  debugger
+                  this.spinner.hide();
                   this.toastr.success('You successfully logged in!');
+
                 }
               }
             });
-
           } else {
+            this.spinner.hide();
             this.toastr.error('Your email is not Verified. Please verify');
           }
         })
         .catch((err: any) => {
-          //  this.spinner.hide();
+           this.spinner.hide();
           this.toastr.error(err.message);
         });
     }

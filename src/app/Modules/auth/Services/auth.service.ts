@@ -41,6 +41,7 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
   userData: any; // Save logged in user data
+  isLoggedIn!: boolean;
   constructor(
     public afs: AngularFirestore, // Inject Firestore service
     public afAuth: AngularFireAuth, // Inject Firebase auth service
@@ -50,12 +51,15 @@ export class AuthService {
   ) {
     /* Saving user data in localstorage when
     logged in and setting up null when logged out */
-    this.afAuth.authState.subscribe((user) => {
+    this.afAuth.authState.subscribe((user:any) => {
+      debugger
       if (user) {
+        this.isLoggedIn=true;
         this.userData = user;
         localStorage.setItem('user', JSON.stringify(this.userData));
         JSON.parse(localStorage.getItem('user')!);
       } else {
+        this.isLoggedIn=false;
         localStorage.setItem('user', 'null');
         JSON.parse(localStorage.getItem('user')!);
       }
@@ -88,5 +92,8 @@ export class AuthService {
       (user: any) => user.sendEmailVerification().then(
         () => console.log('email sent')));
 
+  }
+  ForgotPassword(passwordResetEmail: string) {
+    return this.afAuth.sendPasswordResetEmail(passwordResetEmail);
   }
 }
