@@ -3,7 +3,7 @@
   border-radius: 10px;
   margin: 10px;
   margin-left: 12px;
-  padding: 16px;
+  //padding: 16px;
   overflow: auto;
 }
 
@@ -80,4 +80,16 @@ mat-drawer-container {
 
 mat-drawer {
   background: #fff;
+}
+
+.mat-profile-name {
+  color: #f1eeee;
+  font-size: 11px;
+  font-weight: 100;
+  letter-spacing: 1px;
+  margin-bottom: 5px;
+}
+
+.mat-stroked-button {
+  border: none;
 }

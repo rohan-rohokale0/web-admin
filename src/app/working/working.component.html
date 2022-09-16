@@ -5,8 +5,8 @@
       <a mat-list-item routerLinkActive="list-item-active" routerLink="/admin/dashboard">
         <mat-icon>dashboard</mat-icon> Dashboard
       </a>
-      <a mat-list-item routerLinkActive="list-item-active" routerLink="/home">
-        <mat-icon>home</mat-icon> Home
+      <a mat-list-item routerLinkActive="list-item-active" routerLink="/admin/product-list">
+        <mat-icon>home</mat-icon> Product
       </a>
     </mat-nav-list>
   </mat-drawer>
@@ -15,14 +15,28 @@
       <mat-toolbar-row>
         <h1>Web-Admin</h1>
         <span class="example-spacer"></span>
-        <button mat-icon-button [matMenuTriggerFor]="menu">
-          <mat-icon style="margin-right: 2px;">account_circle</mat-icon>
+        <button mat-icon-button>
+          <mat-icon style="margin-right: 2px;">notifications</mat-icon>
         </button>
-        <mat-menu #menu="matMenu" style="height: 20px;">
-          <button mat-menu-item>Item 1</button>
-          <button mat-menu-item>Item 2</button>
-        </mat-menu>
-
+        <button mat-stroked-button [matMenuTriggerFor]="menu" #menuTrigger="matMenuTrigger"
+          (mouseover)="menuTrigger.openMenu()">
+          <mat-icon style="margin-right: 5px;">account_circle</mat-icon> {{userName.firstName}}
+            {{userName.lastName}}
+        </button>
+        <span class="fill-remaining-space">
+          <mat-menu #menu="matMenu" [overlapTrigger]="false">
+            <span (mouseleave)="menuTrigger.closeMenu()">
+              <button mat-menu-item>
+                <mat-icon>account_box</mat-icon>
+                <span>My Profile</span>
+              </button>
+              <button mat-menu-item (click)="logOut()">
+                <mat-icon>exit_to_app</mat-icon>
+                <span>Logout</span>
+              </button>
+            </span>
+          </mat-menu>
+        </span>
       </mat-toolbar-row>
     </mat-toolbar>
     <div class="content mat-elevation-z8">

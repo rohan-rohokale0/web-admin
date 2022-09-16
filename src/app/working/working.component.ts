@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-working',
   templateUrl: './working.component.html',
@@ -11,7 +12,11 @@ export class WorkingComponent implements OnInit {
   showSubmenu: boolean = false;
   isShowing = false;
   showSubSubMenu: boolean = false;
-
+  userName: any;
+  constructor(private router: Router) {
+    this.userName = JSON.parse(sessionStorage.getItem('user')!);
+    debugger
+  }
   mouseenter() {
     if (!this.isExpanded) {
       this.isShowing = true;
@@ -24,6 +29,12 @@ export class WorkingComponent implements OnInit {
     }
   }
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+
+  }
+
+  logOut() {
+    localStorage.clear();
+    sessionStorage.clear();
+    this.router.navigate(['/auth/sign-in']);
   }
 }

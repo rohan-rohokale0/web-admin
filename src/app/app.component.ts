@@ -9,11 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class AppComponent {
   title = 'web-admin';
 
-  constructor(public router:Router)
-  {
-    debugger
-    this.router
-
+  constructor() {
   }
 
   // @HostListener('document:keydown', ['$event'])

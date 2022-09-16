@@ -8,6 +8,11 @@ import { BarChartComponent } from './Components/bar-chart/bar-chart.component';
 import { LineChartComponent } from './Components/line-chart/line-chart.component';
 import { PieChartComponent } from './Components/pie-chart/pie-chart.component';
 import { NgApexchartsModule } from "ng-apexcharts";
+import { ProductListComponent } from './Components/product-list/product-list.component';
+import { CategoryListComponent } from './Components/category-list/category-list.component';
+import { AddProductComponent } from './Components/add-product/add-product.component';
+import { AddCategoryComponent } from './Components/add-category/add-category.component';
+
 
 
 @NgModule({
@@ -15,13 +20,21 @@ import { NgApexchartsModule } from "ng-apexcharts";
     DashboardComponent,
     BarChartComponent,
     LineChartComponent,
-    PieChartComponent
+    PieChartComponent,
+    ProductListComponent,
+    CategoryListComponent,
+    AddProductComponent,
+    AddCategoryComponent,
+
+
+
   ],
   imports: [
     CommonModule,
     AdminRoutingModule,
     SharedModule,
     NgApexchartsModule,
+
 
   ]
 })

@@ -52,9 +52,17 @@ export class SignInComponent implements OnInit {
                 const data: any = snapshot.data();
                 data.id = snapshot.id;
                 if (data.status) {
+                  debugger
                   this.authService.updateCollectionDataById('DatabaseLogin', snapshot.id, userToken);
                   sessionStorage.setItem('fcmToken', result.user.refreshToken);
-                  sessionStorage.setItem('user', data);
+                  const firstName = data.firstName;
+                  const lastName = data.lastName;
+                  const localData =
+                  {
+                    firstName, lastName
+                  }
+                  sessionStorage.setItem('user', JSON.stringify(localData));
+
                   if (data.userRole === '2') {
                     this.router.navigate(['/admin/dashboard']);
                   }
@@ -71,7 +79,7 @@ export class SignInComponent implements OnInit {
           }
         })
         .catch((err: any) => {
-           this.spinner.hide();
+          this.spinner.hide();
           this.toastr.error(err.message);
         });
     }
