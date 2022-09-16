@@ -12,7 +12,18 @@
   </mat-drawer>
   <mat-drawer-content>
     <mat-toolbar color="primary" class="example-toolbar" fxLayout="column">
-      <h1 class="example-app-name">Nested Menus</h1>
+      <mat-toolbar-row>
+        <h1>Web-Admin</h1>
+        <span class="example-spacer"></span>
+        <button mat-icon-button [matMenuTriggerFor]="menu">
+          <mat-icon style="margin-right: 2px;">account_circle</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu" style="height: 20px;">
+          <button mat-menu-item>Item 1</button>
+          <button mat-menu-item>Item 2</button>
+        </mat-menu>
+
+      </mat-toolbar-row>
     </mat-toolbar>
     <div class="content mat-elevation-z8">
       <router-outlet></router-outlet>

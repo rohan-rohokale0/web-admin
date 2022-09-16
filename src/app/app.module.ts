@@ -19,10 +19,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from './Modules/auth/Services/auth.service';
 import { getAuth, provideAuth } from '@angular/fire/auth';
 import { WorkingComponent } from './working/working.component';
-import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { MaterialModule } from './Modules/shared/package_files/material_module';
 import { ToastrModule } from 'ngx-toastr';
 import { NgxSpinnerModule } from "ngx-spinner";
+import { NgApexchartsModule } from "ng-apexcharts";
 
 @NgModule({
   declarations: [
@@ -43,7 +43,8 @@ import { NgxSpinnerModule } from "ngx-spinner";
     AngularFirestoreModule,
     AngularFireStorageModule,
     AngularFireDatabaseModule,
-    NgxChartsModule, MaterialModule,
+     MaterialModule,
+    NgApexchartsModule,
     NgxSpinnerModule.forRoot({ type: 'square-jelly-box' }),
     ToastrModule.forRoot({
       timeOut: 5000,

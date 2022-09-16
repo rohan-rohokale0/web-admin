@@ -7,6 +7,7 @@ import { SharedModule } from '../shared/shared.module';
 import { BarChartComponent } from './Components/bar-chart/bar-chart.component';
 import { LineChartComponent } from './Components/line-chart/line-chart.component';
 import { PieChartComponent } from './Components/pie-chart/pie-chart.component';
+import { NgApexchartsModule } from "ng-apexcharts";
 
 
 @NgModule({
@@ -19,7 +20,9 @@ import { PieChartComponent } from './Components/pie-chart/pie-chart.component';
   imports: [
     CommonModule,
     AdminRoutingModule,
-    SharedModule
+    SharedModule,
+    NgApexchartsModule,
+
   ]
 })
 export class AdminModule { }
