@@ -2,10 +2,10 @@
   <mat-drawer mode="side" opened="true">
     <mat-nav-list>
       <h2 matSubheader class="mt-2">WEB-ADMIN</h2>
-      <a mat-list-item routerLinkActive="list-item-active" routerLink="/admin/dashboard">
+      <a mat-list-item routerLinkActive="active" routerLink="/admin/dashboard">
         <mat-icon>dashboard</mat-icon> Dashboard
       </a>
-      <a mat-list-item routerLinkActive="list-item-active" routerLink="/admin/product-list">
+      <a mat-list-item routerLinkActive="active" routerLink="/admin/product">
         <mat-icon>home</mat-icon> Product
       </a>
     </mat-nav-list>
@@ -19,7 +19,7 @@
           <mat-icon style="margin-right: 2px;">notifications</mat-icon>
         </button>
         <button mat-stroked-button [matMenuTriggerFor]="menu" #menuTrigger="matMenuTrigger"
-          (mouseover)="menuTrigger.openMenu()">
+          (click)="menuTrigger.openMenu()">
           <mat-icon style="margin-right: 5px;">account_circle</mat-icon> {{userName.firstName}}
             {{userName.lastName}}
         </button>
@@ -39,7 +39,7 @@
         </span>
       </mat-toolbar-row>
     </mat-toolbar>
-    <div class="content mat-elevation-z8">
+    <div class="content">
       <router-outlet></router-outlet>
     </div>
   </mat-drawer-content>

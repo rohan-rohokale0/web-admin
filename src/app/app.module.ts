@@ -23,6 +23,7 @@ import { MaterialModule } from './Modules/shared/package_files/material_module';
 import { ToastrModule } from 'ngx-toastr';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { NgApexchartsModule } from "ng-apexcharts";
+import { ImageCropperModule } from 'ngx-image-cropper';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { NgApexchartsModule } from "ng-apexcharts";
     AngularFireDatabaseModule,
      MaterialModule,
     NgApexchartsModule,
+    ImageCropperModule,
     NgxSpinnerModule.forRoot({ type: 'square-jelly-box' }),
     ToastrModule.forRoot({
       timeOut: 5000,

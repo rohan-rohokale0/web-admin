@@ -7,19 +7,34 @@ import { ProductListComponent } from './Components/product-list/product-list.com
 
 const routes: Routes = [
   {
-    path: 'dashboard', component: DashboardComponent
+    path: 'dashboard',
+    component: DashboardComponent,
   },
   {
-    path: 'product-list', component: ProductListComponent,
-
+    path: 'product',
+    children: [
+      {
+        path: 'add',
+        component: AddProductComponent,
+      },
+      {
+        path: 'update-product',
+        component: AddProductComponent,
+      },
+      {
+        path: '',
+        component: ProductListComponent,
+      },
+    ],
   },
   {
-    path: 'add-product', component: AddProductComponent
-  }
+    path: 'add-product',
+    component: AddProductComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AdminRoutingModule { }
+export class AdminRoutingModule {}

@@ -7,6 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PhoneNumberDirective } from './Direactives/phone-number.directive';
 
 import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { ImageCropperModule } from 'ngx-image-cropper';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
     CardModule,
     FormsModule,
     ReactiveFormsModule,
-    NgxChartsModule
+    NgxChartsModule,
+    ImageCropperModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   exports: [MaterialModule, CardModule, FormsModule, PhoneNumberDirective, NgxChartsModule,
