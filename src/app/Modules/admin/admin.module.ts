@@ -7,13 +7,11 @@ import { SharedModule } from '../shared/shared.module';
 import { BarChartComponent } from './Components/bar-chart/bar-chart.component';
 import { LineChartComponent } from './Components/line-chart/line-chart.component';
 import { PieChartComponent } from './Components/pie-chart/pie-chart.component';
-import { NgApexchartsModule } from "ng-apexcharts";
 import { ProductListComponent } from './Components/product-list/product-list.component';
 import { CategoryListComponent } from './Components/category-list/category-list.component';
 import { AddProductComponent } from './Components/add-product/add-product.component';
 import { AddCategoryComponent } from './Components/add-category/add-category.component';
-
-
+import { ImageCropperModule } from 'ngx-image-cropper';
 
 @NgModule({
   declarations: [
@@ -25,17 +23,7 @@ import { AddCategoryComponent } from './Components/add-category/add-category.com
     CategoryListComponent,
     AddProductComponent,
     AddCategoryComponent,
-
-
-
   ],
-  imports: [
-    CommonModule,
-    AdminRoutingModule,
-    SharedModule,
-    NgApexchartsModule,
-
-
-  ]
+  imports: [CommonModule, AdminRoutingModule, SharedModule, ImageCropperModule],
 })
-export class AdminModule { }
+export class AdminModule {}

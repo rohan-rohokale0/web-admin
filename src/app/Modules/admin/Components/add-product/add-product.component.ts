@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ImageCroppedEvent, LoadedImage } from 'ngx-image-cropper';
 
 @Component({
@@ -9,22 +10,43 @@ import { ImageCroppedEvent, LoadedImage } from 'ngx-image-cropper';
 export class AddProductComponent implements OnInit {
   imageChangedEvent: any = '';
   croppedImage: any = '';
-  constructor() {}
+  imageUrl = false;
+  userImageUrl = '';
+  addProductForm!: FormGroup;
+  imageUploadPathName = 'productImages';
+  addProduct: any;
 
-  ngOnInit(): void {}
+  constructor(private formBuilder: FormBuilder) {}
+
+  ngOnInit(): void {
+    this.initForm();
+  }
+  initForm() {
+    this.addProductForm = this.formBuilder.group({
+      productName: ['', [Validators.required]],
+    });
+  }
   fileChangeEvent(event: any): void {
     this.imageChangedEvent = event;
   }
   imageCropped(event: ImageCroppedEvent) {
+    debugger;
     this.croppedImage = event.base64;
+    this.imageUrl = true;
+    console.log(this.imageUrl);
   }
-  imageLoaded(image: LoadedImage) {
-    // show cropper
+
+  imageLoaded(image: LoadedImage) {}
+
+  cropperReady() {}
+
+  loadImageFailed() {}
+
+  onUploadImage(event: any) {
+    this.imageUrl = event.imageUrl;
   }
-  cropperReady() {
-    // cropper ready
-  }
-  loadImageFailed() {
-    // show message
+
+  deleteimg() {
+    //this.imageUrl = '';
   }
 }

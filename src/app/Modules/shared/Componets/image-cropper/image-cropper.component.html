@@ -1,0 +1,48 @@
+<!-- <div class="container" *ngIf="imageChangedEvent === ''">
+  <div class="wrapper">
+    <div class="content">
+      <div class="icon">
+        <i class="fa fa-download" aria-hidden="true"></i>
+      </div>
+      <div class="text">No file choose</div>
+    </div>
+  </div>
+</div>
+
+<div class="wrapper" *ngIf="imageChangedEvent !== ''">
+  <image-cropper
+    [imageChangedEvent]="imageChangedEvent"
+    [aspectRatio]="aspectRatio"
+    [maintainAspectRatio]="true"
+    [cropperMinWidth]="cropperMinWidth"
+    [cropperMinHeight]="cropperMinHeight"
+    [resizeToWidth]="resizeToWidth"
+    [resizeToHeight]="resizeToHeight"
+    format="png"
+    (imageCropped)="imageCropped($event)"
+    [imageQuality]="100"
+    alignImage="left"
+  >
+  </image-cropper>
+</div>
+
+<div class="uploader">
+  <input
+    type="file"
+    #file
+    id="file"
+    (change)="fileChangeEvent($event)"
+    [disabled]="disableFile"
+    accept="image/png, image/jpeg"
+  />
+  <label for="file" translate style="text-align: center">Choose File</label>
+  <button
+    mat-raised-button
+    class="btn-upload"
+    (click)="onUploadClick()"
+    type="button"
+    disabled="{{ isUploadDisabled }}"
+  >
+    Upload
+  </button>
+</div> -->

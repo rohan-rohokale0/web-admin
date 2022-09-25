@@ -1,4 +1,8 @@
-import { CUSTOM_ELEMENTS_SCHEMA, ModuleWithProviders, NgModule } from '@angular/core';
+import {
+  CUSTOM_ELEMENTS_SCHEMA,
+  ModuleWithProviders,
+  NgModule,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MaterialModule } from './package_files/material_module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -7,13 +11,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PhoneNumberDirective } from './Direactives/phone-number.directive';
 
 import { NgxChartsModule } from '@swimlane/ngx-charts';
-import { ImageCropperModule } from 'ngx-image-cropper';
+import { ImageCropperComponent } from './Componets/image-cropper/image-cropper.component';
 
 @NgModule({
-  declarations: [
-    PhoneNumberDirective,
-
-  ],
+  declarations: [PhoneNumberDirective, ImageCropperComponent],
   imports: [
     CommonModule,
     MaterialModule,
@@ -21,25 +22,26 @@ import { ImageCropperModule } from 'ngx-image-cropper';
     FormsModule,
     ReactiveFormsModule,
     NgxChartsModule,
-    ImageCropperModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  exports: [MaterialModule, CardModule, FormsModule, PhoneNumberDirective, NgxChartsModule,
-
-    ReactiveFormsModule]
+  exports: [
+    MaterialModule,
+    CardModule,
+    FormsModule,
+    PhoneNumberDirective,
+    NgxChartsModule,
+    ImageCropperComponent,
+    ReactiveFormsModule,
+  ],
 })
 export class SharedModule {
-
   static forRoot(): ModuleWithProviders<SharedModule> {
     return {
       ngModule: SharedModule,
-      providers: [
-      ]
+      providers: [],
     };
   }
-  constructor() {
-
-  }
+  constructor() {}
 }
 
 declare module '@angular/core' {

@@ -1,67 +1,83 @@
 <mat-card class="container-sm">
   <mat-card-title>
-    <div>
-      <span>
-        <mat-icon>keyboard_backspace</mat-icon
-        ><span class="header">Add Product</span>
-      </span>
-    </div>
+    <span>
+      <mat-icon>keyboard_backspace</mat-icon
+      ><span class="header">Add Product</span>
+    </span>
   </mat-card-title>
+  <form [formGroup]="addProductForm">
+    <div class="row">
+      <div class="col-4">
+        <mat-form-field appearance="legacy">
+          <mat-label>Product Name</mat-label>
+          <input
+            matInput
+            placeholder="Product Name"
+            formControlName="productName"
+          />
+          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+          <mat-hint>Hint</mat-hint>
+          <mat-error
+            *ngIf="addProductForm.controls['productName']; hasError: 'error'"
+          >
+            <span
+              *ngIf="
+                addProductForm.controls['productName'];
+                hasError: 'required'
+              "
+            >
+              Please enter product name</span
+            >
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col-4">
+        <mat-form-field appearance="legacy">
+          <mat-label>Legacy form field</mat-label>
+          <input matInput placeholder="Placeholder" />
+          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+          <mat-hint>Hint</mat-hint>
+        </mat-form-field>
+      </div>
+      <div class="col-4">
+        <mat-form-field appearance="legacy">
+          <mat-label>Legacy form field</mat-label>
+          <input matInput placeholder="Placeholder" />
+          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+          <mat-hint>Hint</mat-hint>
+        </mat-form-field>
+      </div>
+      <div class="col-4">
+        <mat-form-field appearance="legacy">
+          <mat-label>Legacy form field</mat-label>
+          <input matInput placeholder="Placeholder" />
+          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+          <mat-hint>Hint</mat-hint>
+        </mat-form-field>
+      </div>
+      <div class="col-4">
+        <mat-form-field appearance="legacy">
+          <mat-label>Legacy form field</mat-label>
+          <input matInput placeholder="Placeholder" />
+          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+          <mat-hint>Hint</mat-hint>
+        </mat-form-field>
+      </div>
 
-  <div class="row">
-    <div class="col-4">
-      <mat-form-field appearance="legacy">
-        <mat-label>Legacy form field</mat-label>
-        <input matInput placeholder="Placeholder" />
-        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-        <mat-hint>Hint</mat-hint>
-      </mat-form-field>
+      <div class="col-4">
+        <mat-form-field appearance="legacy">
+          <mat-label>Legacy form field</mat-label>
+          <input matInput placeholder="Placeholder" />
+          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+          <mat-hint>Hint</mat-hint>
+        </mat-form-field>
+      </div>
     </div>
-    <div class="col-4">
-      <mat-form-field appearance="legacy">
-        <mat-label>Legacy form field</mat-label>
-        <input matInput placeholder="Placeholder" />
-        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-        <mat-hint>Hint</mat-hint>
-      </mat-form-field>
+  </form>
+  <div class="row justify-content-end">
+    <div class="col-2">
+      <button mat-raised-button color="warn">Cancel</button>&nbsp;
+      <button mat-raised-button color="primary">Save</button>
     </div>
-    <div class="col-4">
-      <mat-form-field appearance="legacy">
-        <mat-label>Legacy form field</mat-label>
-        <input matInput placeholder="Placeholder" />
-        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-        <mat-hint>Hint</mat-hint>
-      </mat-form-field>
-    </div>
-    <div class="col-4">
-      <mat-form-field appearance="legacy">
-        <mat-label>Legacy form field</mat-label>
-        <input matInput placeholder="Placeholder" />
-        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-        <mat-hint>Hint</mat-hint>
-      </mat-form-field>
-    </div>
-    <div class="col-4">
-      <mat-form-field appearance="legacy">
-        <mat-label>Legacy form field</mat-label>
-        <input matInput placeholder="Placeholder" />
-        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-        <mat-hint>Hint</mat-hint>
-      </mat-form-field>
-    </div>
-    <div class="col-4">
-      <mat-form-field appearance="legacy">
-        <mat-label>Legacy form field</mat-label>
-        <input matInput placeholder="Placeholder" />
-        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-        <mat-hint>Hint</mat-hint>
-      </mat-form-field>
-    </div>
-  </div>
-  <div>
-    <input type="file" (change)="fileChangeEvent($event)" />
-
-
-    <img [src]="croppedImage" />
   </div>
 </mat-card>
