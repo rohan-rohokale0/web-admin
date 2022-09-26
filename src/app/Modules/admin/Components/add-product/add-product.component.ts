@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ImageCroppedEvent, LoadedImage } from 'ngx-image-cropper';
 
 @Component({
@@ -16,7 +17,7 @@ export class AddProductComponent implements OnInit {
   imageUploadPathName = 'productImages';
   addProduct: any;
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(private formBuilder: FormBuilder, private router: Router) {}
 
   ngOnInit(): void {
     this.initForm();
@@ -48,5 +49,8 @@ export class AddProductComponent implements OnInit {
 
   deleteimg() {
     //this.imageUrl = '';
+  }
+  back() {
+    this.router.navigate(['admin/product']);
   }
 }
