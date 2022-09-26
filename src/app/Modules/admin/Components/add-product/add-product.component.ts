@@ -8,6 +8,7 @@ import { ImageCroppedEvent, LoadedImage } from 'ngx-image-cropper';
   styleUrls: ['./add-product.component.scss'],
 })
 export class AddProductComponent implements OnInit {
+  selected = 'none';
   imageChangedEvent: any = '';
   croppedImage: any = '';
   imageUrl = false;
@@ -15,6 +16,8 @@ export class AddProductComponent implements OnInit {
   addProductForm!: FormGroup;
   imageUploadPathName = 'productImages';
   addProduct: any;
+
+  
 
   constructor(private formBuilder: FormBuilder) {}
 
