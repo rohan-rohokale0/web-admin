@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from '../shared/auth.guard';
 import { AddProductComponent } from './Components/add-product/add-product.component';
+import { CategoryListComponent } from './Components/category-list/category-list.component';
 import { DashboardComponent } from './Components/dashboard/dashboard.component';
 import { ProductListComponent } from './Components/product-list/product-list.component';
 
@@ -27,10 +28,14 @@ const routes: Routes = [
       },
     ],
   },
-  {
-    path: 'add-product',
-    component: AddProductComponent,
-  },
+{
+  path:'category',
+  children:[
+    {
+      path:'',component:CategoryListComponent
+    }
+  ]
+}
 ];
 
 @NgModule({

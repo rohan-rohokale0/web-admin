@@ -121,7 +121,6 @@
               <mat-option value="option2">Personal Care</mat-option>
               <mat-option value="option3">Baby & Kids</mat-option>
             </mat-select>
-          <!-- </mat-form-field> -->
           <mat-error
             *ngIf="addProductForm.controls['productName']; hasError: 'error'"
           >
@@ -139,7 +138,7 @@
   <div class="row justify-content-end">
     <div class="col-2">
       <button mat-raised-button color="warn">Cancel</button>&nbsp;
-      <button mat-raised-button color="primary">Save</button>
+      <button [disabled]="addProductForm.invalid" mat-raised-button color="primary">Save</button>
     </div>
   </div>
 </mat-card>

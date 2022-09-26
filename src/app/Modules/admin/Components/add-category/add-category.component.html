@@ -1,1 +1,61 @@
-<p>add-category works!</p>
+<div class="row">
+  <div class="col-10">
+    <h1 mat-dialog-title>Add Category</h1>
+  </div>
+  <div class="col-2">
+    <!-- <mat-icon (click)="closeDialog()">clear</mat-icon> -->
+    <mat-icon (click)="closeDialog()">cancel</mat-icon>
+  </div>
+</div>
+<div mat-dialog-content>
+  <form [formGroup]="addCategoryForm">
+    <div class="col-10">
+      <mat-form-field appearance="legacy">
+        <mat-label>Category Name</mat-label>
+        <input
+          matInput
+          placeholder="Category Name"
+          formControlName="categoryName"
+        />
+        <mat-error
+          *ngIf="addCategoryForm.controls['categoryName']; hasError: 'error'"
+        >
+          <span
+            *ngIf="
+              addCategoryForm.controls['categoryName'];
+              hasError: 'required'
+            "
+          >
+            Please enter category name</span
+          >
+        </mat-error>
+      </mat-form-field>
+    </div>
+  </form>
+</div>
+<!-- <div mat-dialog-actions>
+  
+     
+</div> -->
+<div class="row">
+  <div class="col">
+    <div class="text-end">
+      <button
+        mat-raised-button
+        color="warn"
+        class="float-right"
+        (click)="closeDialog()"
+      >
+        Cancel</button
+      >&nbsp;
+      <button
+        [disabled]="addCategoryForm.invalid"
+        mat-raised-button
+        color="primary"
+        class="float-right"
+      >
+        Save
+      </button>
+    </div>
+  </div>
+</div>

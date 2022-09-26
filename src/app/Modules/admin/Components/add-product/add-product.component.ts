@@ -26,6 +26,10 @@ export class AddProductComponent implements OnInit {
   initForm() {
     this.addProductForm = this.formBuilder.group({
       productName: ['', [Validators.required]],
+      productCompany:['',[Validators.required]],
+      productDiscount:['',[Validators.required]],
+      productPrice:['',[Validators.required]]
+
     });
   }
   fileChangeEvent(event: any): void {
