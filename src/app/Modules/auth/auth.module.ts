@@ -7,13 +7,15 @@ import { SignUpComponent } from './Compoents/sign-up/sign-up.component';
 import { ForgotPasswordComponent } from './Compoents/forgot-password/forgot-password.component';
 import { AuthService } from './Services/auth.service';
 import { SharedModule } from '../shared/shared.module';
+import { BasicDetailsComponent } from './Compoents/basic-details/basic-details.component';
 
 
 @NgModule({
   declarations: [
     SignInComponent,
     SignUpComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    BasicDetailsComponent
   ],
   imports: [
     CommonModule,

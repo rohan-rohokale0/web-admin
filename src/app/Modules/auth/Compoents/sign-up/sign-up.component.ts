@@ -37,9 +37,6 @@ export class SignUpComponent implements OnInit {
     )
   }
 
-
-
-
   toggleShowPassword() {
     this.showPassword = !this.showPassword;
     console.log("this.showPassword", this.showPassword)
@@ -60,6 +57,7 @@ export class SignUpComponent implements OnInit {
               status: true,
               userRole: '2'
             };
+            this.spinner.hide();
             this.authService.setCollectionDataById('DatabaseLogin', res.user.uid, result).then(() => {
               const firstName = {
                 firstName: result.firstName,
@@ -72,7 +70,8 @@ export class SignUpComponent implements OnInit {
                   duration: 5000
                 });
               this.authService.verificationMail();
-              this.router.navigate(['/auth/sign-in'], { queryParams: { id: res.user.uid } });
+              this.router.navigate(['/auth/basic-details'],{ queryParams: { id: res.user.uid }});
+
             }).catch(err => {
               this.spinner.hide();
               this.matSnackBar.open(err.message, 'close',
@@ -81,13 +80,14 @@ export class SignUpComponent implements OnInit {
                 });
             });
           }).catch(err => {
+            this.spinner.hide();
             this.matSnackBar.open(err.message, 'close',
               {
                 duration: 5000
               });
           });
       } else {
-
+        this.spinner.hide();
       }
     }
   }
