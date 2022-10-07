@@ -50,7 +50,7 @@
       >&nbsp;
       <button
         [disabled]="addCategoryForm.invalid"
-        mat-raised-button
+        mat-raised-button (click)="save()"
         color="primary"
         class="float-right"
       >

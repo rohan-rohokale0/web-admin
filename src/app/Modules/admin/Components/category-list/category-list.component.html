@@ -12,25 +12,27 @@
       </button>
     </div>
   </mat-card-title>
+
   <div class="containers">
     <table mat-table [dataSource]="dataSource">
+
       <!-- Position Column -->
-      <ng-container matColumnDef="id">
-        <th mat-header-cell *matHeaderCellDef>No.</th>
-        <td mat-cell *matCellDef="let element">{{ element.id }}</td>
-      </ng-container>
+
       <!-- Name Column -->
       <ng-container matColumnDef="name">
         <th mat-header-cell *matHeaderCellDef>Name</th>
-        <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+        <td mat-cell *matCellDef="let element">{{ element.categoryName }}</td>
       </ng-container>
       <!-- Weight Column -->
 
 
       <!-- Symbol Column -->
-      <ng-container matColumnDef="action">
+      <ng-container matColumnDef="action"class="align-right">
         <th mat-header-cell *matHeaderCellDef>Action</th>
-        <td mat-cell *matCellDef="let element">{{ element.action }}</td>
+        <td mat-cell *matCellDef="let element"><span><mat-icon class="cusror-pointer" (click)="editCategory(element.id)">edit</mat-icon></span>&nbsp;
+          <span><mat-icon class="cusror-pointer" (click)="deleteCategory(element.id)">delete</mat-icon></span>
+        </td>
+        
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

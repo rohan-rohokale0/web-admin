@@ -10,69 +10,84 @@ import { AuthService } from '../../Services/auth.service';
 @Component({
   selector: 'app-sign-in',
   templateUrl: './sign-in.component.html',
-  styleUrls: ['./sign-in.component.scss']
+  styleUrls: ['./sign-in.component.scss'],
 })
 export class SignInComponent implements OnInit {
   showPassword = false;
   SignInForm!: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private router: Router, private authService: AuthService,
-    private angularFireAuth: AngularFireAuth, private spinner: NgxSpinnerService,
-    private toastr: ToastrService) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private router: Router,
+    private authService: AuthService,
+    private angularFireAuth: AngularFireAuth,
+    private spinner: NgxSpinnerService,
+    private toastr: ToastrService
+  ) {}
 
   ngOnInit(): void {
     this.initForm();
   }
 
   initForm() {
-    this.SignInForm = this.formBuilder.group(
-      {
-        email: ['', [Validators.required, Validators.email]],
-        password: ['', [Validators.required]]
-      }
-    )
+    this.SignInForm = this.formBuilder.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required]],
+    });
   }
 
   toggleShowPassword() {
     this.showPassword = !this.showPassword;
-    console.log("this.showPassword", this.showPassword)
+    console.log('this.showPassword', this.showPassword);
   }
 
   login() {
     if (this.SignInForm.valid) {
       this.spinner.show();
-      this.angularFireAuth.signInWithEmailAndPassword(this.SignInForm.controls['email'].value, this.SignInForm.controls['password'].value)
+      this.angularFireAuth
+        .signInWithEmailAndPassword(
+          this.SignInForm.controls['email'].value,
+          this.SignInForm.controls['password'].value
+        )
         .then((result: any) => {
           if (result.user.emailVerified) {
-            this.authService.getCollectionDataById('DatabaseLogin', result.user.uid).subscribe((snapshot: any) => {
-              const userToken = {
-                fcmToken: sessionStorage.getItem('fcmToken')
-              };
-              if (snapshot.exists) {
-                const data: any = snapshot.data();
-                data.id = snapshot.id;
-                if (data.status) {
-                  debugger
-                  this.authService.updateCollectionDataById('DatabaseLogin', snapshot.id, userToken);
-                  sessionStorage.setItem('fcmToken', result.user.refreshToken);
-                  const firstName = data.firstName;
-                  const lastName = data.lastName;
-                  const localData =
-                  {
-                    firstName, lastName
+            this.authService
+              .getCollectionDataById('DatabaseLogin', result.user.uid)
+              .subscribe((snapshot: any) => {
+                const userToken = {
+                  fcmToken: sessionStorage.getItem('fcmToken'),
+                };
+                if (snapshot.exists) {
+                  const data: any = snapshot.data();
+                  data.id = snapshot.id;
+                  if (data.status) {
+                    debugger;
+                    this.authService.updateCollectionDataById(
+                      'DatabaseLogin',
+                      snapshot.id,
+                      userToken
+                    );
+                    sessionStorage.setItem(
+                      'fcmToken',
+                      result.user.refreshToken
+                    );
+                    const firstName = data.firstName;
+                    const lastName = data.lastName;
+                    const localData = {
+                      firstName,
+                      lastName,
+                    };
+                    sessionStorage.setItem('user', JSON.stringify(localData));
+                    sessionStorage.setItem('users', JSON.stringify(data));
+                    if (data.userRole === '2') {
+                      this.router.navigate(['/admin/dashboard']);
+                    }
+                    debugger;
+                    this.spinner.hide();
+                    this.toastr.success('You successfully logged in!');
                   }
-                  sessionStorage.setItem('user', JSON.stringify(localData));
-
-                  if (data.userRole === '2') {
-                    this.router.navigate(['/admin/dashboard']);
-                  }
-                  debugger
-                  this.spinner.hide();
-                  this.toastr.success('You successfully logged in!');
-
                 }
-              }
-            });
+              });
           } else {
             this.spinner.hide();
             this.toastr.error('Your email is not Verified. Please verify');
@@ -84,5 +99,4 @@ export class SignInComponent implements OnInit {
         });
     }
   }
-
 }

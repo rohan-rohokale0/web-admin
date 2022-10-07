@@ -24,6 +24,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { ImageCropperModule } from 'ngx-image-cropper';
+import { FirestoreService } from './Modules/shared/Services/firestore.service';
 
 @NgModule({
   declarations: [AppComponent, WorkingComponent],
@@ -53,7 +54,7 @@ import { ImageCropperModule } from 'ngx-image-cropper';
     }),
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  providers: [AuthService],
+  providers: [AuthService,FirestoreService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

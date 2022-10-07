@@ -15,7 +15,6 @@ export class WorkingComponent implements OnInit {
   userName: any;
   constructor(private router: Router) {
     this.userName = JSON.parse(sessionStorage.getItem('user')!);
-    debugger
   }
   mouseenter() {
     if (!this.isExpanded) {

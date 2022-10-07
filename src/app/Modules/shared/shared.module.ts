@@ -12,6 +12,7 @@ import { PhoneNumberDirective } from './Direactives/phone-number.directive';
 
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { ImageCropperComponent } from './Componets/image-cropper/image-cropper.component';
+import { FirestoreService } from './Services/firestore.service';
 
 @NgModule({
   declarations: [PhoneNumberDirective, ImageCropperComponent],
@@ -22,6 +23,7 @@ import { ImageCropperComponent } from './Componets/image-cropper/image-cropper.c
     FormsModule,
     ReactiveFormsModule,
     NgxChartsModule,
+    
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   exports: [
@@ -32,7 +34,9 @@ import { ImageCropperComponent } from './Componets/image-cropper/image-cropper.c
     NgxChartsModule,
     ImageCropperComponent,
     ReactiveFormsModule,
+    
   ],
+  providers:[FirestoreService]
 })
 export class SharedModule {
   static forRoot(): ModuleWithProviders<SharedModule> {
