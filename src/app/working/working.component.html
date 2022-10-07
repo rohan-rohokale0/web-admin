@@ -1,7 +1,7 @@
 <mat-drawer-container>
   <mat-drawer mode="side" opened="true">
     <mat-nav-list>
-      <h2 matSubheader class="mt-2">WEB-ADMIN</h2>
+      <h2 matSubheader class="mt-2">EverExpanse</h2>
       <a mat-list-item routerLinkActive="active" routerLink="/admin/dashboard">
         <mat-icon>dashboard</mat-icon> Dashboard
       </a>
@@ -16,10 +16,10 @@
   <mat-drawer-content>
     <mat-toolbar color="primary" class="example-toolbar" fxLayout="column">
       <mat-toolbar-row>
-        <h1>Web-Admin</h1>
+        <h1>TIME-SHEET</h1>
         <span class="example-spacer"></span>
         <button mat-icon-button>
-          <mat-icon style="margin-right: 2px;">notifications</mat-icon>
+          <!-- <mat-icon style="margin-right: 2px;">notifications</mat-icon> -->
         </button>
         <button mat-stroked-button [matMenuTriggerFor]="menu" #menuTrigger="matMenuTrigger"
           (click)="menuTrigger.openMenu()">

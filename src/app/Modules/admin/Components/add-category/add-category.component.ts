@@ -8,7 +8,7 @@ import { MatDialogRef } from '@angular/material/dialog';
   styleUrls: ['./add-category.component.scss'],
 })
 export class AddCategoryComponent implements OnInit {
-  addCategoryForm!: FormGroup;
+  addInForm!: FormGroup;
   constructor(
     public dialogRef: MatDialogRef<AddCategoryComponent>,
     private formBuilder: FormBuilder
@@ -18,8 +18,10 @@ export class AddCategoryComponent implements OnInit {
     this.initForm();
   }
   initForm() {
-    this.addCategoryForm = this.formBuilder.group({
-      categoryName: ['', [Validators.required]],
+    this.addInForm = this.formBuilder.group({
+      ProjectName: ['', [Validators.required]],
+      hours:['', [Validators.required]],
+      description:['', [Validators.required]]
     });
   }
   closeDialog() {
