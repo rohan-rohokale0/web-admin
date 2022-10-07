@@ -7,7 +7,7 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 export class FirestoreService {
   constructor(private firestore: AngularFirestore) {}
   getCollectionData(collectionPath: any) {
-    return this.firestore.doc(collectionPath).snapshotChanges();
+    return this.firestore.doc(collectionPath).get();
   }
 
   getCollectionDataById(collectionPath: any, docId: any) {

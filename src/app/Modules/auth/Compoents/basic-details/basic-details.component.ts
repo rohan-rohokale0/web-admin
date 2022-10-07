@@ -57,7 +57,7 @@ export class BasicDetailsComponent implements OnInit {
         userRole: '2',
       };
       this.firestoreService
-        .addCollectionData(this.collectionPath, result)
+        .setCollectionDataById(this.collectionPath,this.id, result)
         .then(() => {
           this.matSnackBar.open(
             'Basic Information Added successfully!',
@@ -67,7 +67,7 @@ export class BasicDetailsComponent implements OnInit {
             }
           );
           this.spinner.hide();
-          this.router.navigate(['/auth/auth/sign-in']);
+          this.router.navigate(['/auth/sign-in']);
         })
         .catch((err) => {
           this.spinner.hide();

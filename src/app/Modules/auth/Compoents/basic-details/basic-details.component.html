@@ -30,8 +30,8 @@
           <mat-form-field appearance="legacy" >
               <mat-label>Approve</mat-label>
               <mat-select formControlName="Approve">
-                <mat-option value="option1">Grocery</mat-option>
-                <mat-option value="option2">Dairy Product</mat-option>  
+                <mat-option value="option1">Rohan</mat-option>
+                <mat-option value="option2">Sushant</mat-option>  
               </mat-select>
               <mat-error
               *ngIf="addBasicDetailsForm.controls['Approve']; hasError: 'error'"
@@ -48,11 +48,10 @@
         <div class="col-6">
           <mat-form-field appearance="legacy">
               <mat-label>Project</mat-label>
-              <mat-select [(value)]="selected" formControlName="projectName">
-                <mat-option>None</mat-option>
-                <mat-option value="option1">Grocery</mat-option>
-                <mat-option value="option2">Dairy Product</mat-option>
-                <mat-option value="option3">Packaged Food</mat-option>
+              <mat-select  formControlName="projectName">
+                
+                <mat-option value="option1">SRk</mat-option>
+                <mat-option value="option2">Ever Expanse</mat-option>
               </mat-select>
               <mat-error
               *ngIf="addBasicDetailsForm.controls['projectName']; hasError: 'error'"
@@ -69,11 +68,11 @@
         <div class="col-6">
           <mat-form-field appearance="legacy">
               <mat-label>Role On Project</mat-label>
-              <mat-select [(value)]="selected" formControlName="roleAndProject">
-                <mat-option>None</mat-option>
-                <mat-option value="option1">Grocery</mat-option>
-                <mat-option value="option2">Dairy Product</mat-option>
-                <mat-option value="option3">Packaged Food</mat-option>
+              <mat-select formControlName="roleAndProject">
+               
+                <mat-option value="option1">Softwer Devloper</mat-option>
+                <mat-option value="option2">Testing</mat-option>
+                <mat-option value="option3">Team Lead</mat-option>
               </mat-select>
               <mat-error
               *ngIf="addBasicDetailsForm.controls['roleAndProject']; hasError: 'error'"
@@ -90,11 +89,10 @@
         <div class="col-6">
           <mat-form-field appearance="legacy">
               <mat-label>Department</mat-label>
-              <mat-select [(value)]="selected" formControlName="department">
+              <mat-select  formControlName="department">
                 <mat-option>None</mat-option>
-                <mat-option value="option1">Grocery</mat-option>
-                <mat-option value="option2">Dairy Product</mat-option>
-                <mat-option value="option3">Packaged Food</mat-option>
+                <mat-option value="option1">hr</mat-option>
+                <mat-option value="option2">Admin</mat-option>
               </mat-select>
               <mat-error
               *ngIf="addBasicDetailsForm.controls['department']; hasError: 'error'"
@@ -111,11 +109,10 @@
         <div class="col-6">
           <mat-form-field appearance="legacy">
               <mat-label>Reporting Name</mat-label>
-              <mat-select [(value)]="selected" formControlName="reportingName">
-                <mat-option>None</mat-option>
-                <mat-option value="option1">Grocery</mat-option>
-                <mat-option value="option2">Dairy Product</mat-option>
-                <mat-option value="option3">Packaged Food</mat-option>
+              <mat-select  formControlName="reportingName">
+                
+                <mat-option value="option1">Smita</mat-option>
+                <mat-option value="option2">Dhanashree</mat-option>
               </mat-select>
               <mat-error
               *ngIf="addBasicDetailsForm.controls['reportingName']; hasError: 'error'"
