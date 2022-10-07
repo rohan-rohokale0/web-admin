@@ -54,10 +54,12 @@ export class SignInComponent implements OnInit {
             this.authService
               .getCollectionDataById('DatabaseLogin', result.user.uid)
               .subscribe((snapshot: any) => {
+                debugger
                 const userToken = {
                   fcmToken: sessionStorage.getItem('fcmToken'),
                 };
                 if (snapshot.exists) {
+                  debugger
                   const data: any = snapshot.data();
                   data.id = snapshot.id;
                   if (data.status) {
@@ -82,7 +84,7 @@ export class SignInComponent implements OnInit {
                     if (data.userRole === '2') {
                       this.router.navigate(['/admin/dashboard']);
                     }
-                    debugger;
+                    ;
                     this.spinner.hide();
                     this.toastr.success('You successfully logged in!');
                   }

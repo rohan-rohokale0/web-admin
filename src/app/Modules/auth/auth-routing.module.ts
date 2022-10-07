@@ -7,19 +7,25 @@ import { SignUpComponent } from './Compoents/sign-up/sign-up.component';
 
 const routes: Routes = [
   {
-    path: 'sign-up', component: SignUpComponent
+    path: 'sign-in',
+    component: SignInComponent,
   },
   {
-    path: 'forgot-password', component: ForgotPasswordComponent
-  }
-,
-{
-  path:'basic-details',component:BasicDetailsComponent
-}
+    path: 'sign-up',
+    component: SignUpComponent,
+  },
+  {
+    path: 'forgot-password',
+    component: ForgotPasswordComponent,
+  },
+  {
+    path: 'basic-details',
+    component: BasicDetailsComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AuthRoutingModule { }
+export class AuthRoutingModule {}
