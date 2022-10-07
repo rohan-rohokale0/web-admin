@@ -11,9 +11,9 @@ import { FirestoreService } from 'src/app/Modules/shared/Services/firestore.serv
   styleUrls: ['./add-category.component.scss'],
 })
 export class AddCategoryComponent implements OnInit {
-  addCategoryForm!: FormGroup;
-  collectionPath = '';
-  user: any;
+  addInForm!: FormGroup;
+  user:any;
+  collectionPath:any;
   constructor(
     public dialogRef: MatDialogRef<AddCategoryComponent>,
     private formBuilder: FormBuilder,
@@ -29,61 +29,15 @@ export class AddCategoryComponent implements OnInit {
     this.initForm();
   }
   initForm() {
-    this.addCategoryForm = this.formBuilder.group({
-      categoryName: ['', [Validators.required]],
+    this.addInForm = this.formBuilder.group({
+      ProjectName: ['', [Validators.required]],
+      hours:['', [Validators.required]],
+      description:['', [Validators.required]]
     });
   }
   closeDialog() {
     this.dialogRef.close();
   }
   save() {
-    if (this.addCategoryForm.valid) {
-      // if (this.alreadyExists()) {
-      //   this.matSnackBar.open(
-      //     this.commonDataBindingService.getLabel(
-      //       'label_category_already_exists'
-      //     ),
-      //     'close',
-      //     {
-      //       duration: AppSetting.MAT_SNACKBAR_TIME,
-      //     }
-      //   );
-      // } else {
-      this.spinner.show();
-      const data = {
-        categoryName: this.addCategoryForm.controls['categoryName'].value,
-        createdAt: new Date().getTime(),
-        createdBy: this.user.id,
-        updatedAt: 0,
-        updatedBy: '',
-        status: true,
-      };
-      this.firestoreService
-        .addCollectionData(this.collectionPath, data)
-        .then((res) => {
-          this.toastr.success('Category added successfully.');
-          this.closeDialog();
-          this.spinner.hide();
-        })
-        .catch((error) => {
-          this.closeDialog();
-          console.log(error);
-        });
-      
-    }
-    this.spinner.hide();
   }
 }
-
-// alreadyExists() {
-//   const categoryList = this.datastoreService.category;
-//   const existList = categoryList.filter(
-//     (element) =>
-//       element.categoryName === this.categoryForm.controls.categoryName.value
-//   );
-//   if (existList.length > 0) {
-//     return true;
-//   } else {
-//     return false;
-//   }
-// }
