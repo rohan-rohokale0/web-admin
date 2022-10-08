@@ -10,7 +10,7 @@
   box-sizing: border-box;
 }
 .forgot-password-link {
-  margin-right: 15px;
+  margin-right: 70px;
 }
 
 .link {
@@ -19,4 +19,11 @@
 .sign-up-link {
   color: black;
   padding-top: 10px;
+}
+.mat-card
+{
+  height: fit-content;
+}
+.mat-form-field {
+  display: inline;
 }

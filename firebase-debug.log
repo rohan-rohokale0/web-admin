@@ -1,0 +1,61 @@
+[debug] [2022-10-08T03:13:12.733Z] ----------------------------------------------------------------------
+[debug] [2022-10-08T03:13:12.734Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\admin\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2022-10-08T03:13:12.735Z] CLI Version:   11.9.0
+[debug] [2022-10-08T03:13:12.735Z] Platform:      win32
+[debug] [2022-10-08T03:13:12.735Z] Node Version:  v16.17.0
+[debug] [2022-10-08T03:13:12.747Z] Time:          Sat Oct 08 2022 08:43:12 GMT+0530 (India Standard Time)
+[debug] [2022-10-08T03:13:12.748Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-10-08T03:13:12.807Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-10-08T03:13:12.808Z] > authorizing via signed-in user (rohanrohokale1234@gmail.com)
+[debug] [2022-10-08T03:13:12.808Z] [iam] checking project web-admin-72f48 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2022-10-08T03:13:12.809Z] > refreshing access token with scopes: []
+[debug] [2022-10-08T03:13:12.810Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2022-10-08T03:13:12.810Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2022-10-08T03:13:12.826Z] [iam] error while checking permissions, command may fail: FirebaseError: Authentication Error: Your credentials are no longer valid. Please run firebase login --reauth
+
+For CI servers and headless environments, generate a new token with firebase login:ci
+[debug] [2022-10-08T03:13:12.827Z] > refreshing access token with scopes: []
+[debug] [2022-10-08T03:13:12.827Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2022-10-08T03:13:12.828Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2022-10-08T03:13:12.831Z] Authentication Error: Your credentials are no longer valid. Please run firebase login --reauth
+
+For CI servers and headless environments, generate a new token with firebase login:ci
+[debug] [2022-10-08T03:13:12.845Z] FirebaseError: Authentication Error: Your credentials are no longer valid. Please run firebase login --reauth
+
+For CI servers and headless environments, generate a new token with firebase login:ci
+    at invalidCredentialError (C:\Users\admin\AppData\Roaming\npm\node_modules\firebase-tools\lib\auth.js:144:12)
+    at refreshTokens (C:\Users\admin\AppData\Roaming\npm\node_modules\firebase-tools\lib\auth.js:508:15)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async Client.getAccessToken (C:\Users\admin\AppData\Roaming\npm\node_modules\firebase-tools\lib\apiv2.js:149:23)
+    at async Client.addAuthHeader (C:\Users\admin\AppData\Roaming\npm\node_modules\firebase-tools\lib\apiv2.js:140:21)
+    at async Client.request (C:\Users\admin\AppData\Roaming\npm\node_modules\firebase-tools\lib\apiv2.js:96:34)
+    at async getFirebaseProject (C:\Users\admin\AppData\Roaming\npm\node_modules\firebase-tools\lib\management\projects.js:295:21)
+    at async getDefaultHostingSite (C:\Users\admin\AppData\Roaming\npm\node_modules\firebase-tools\lib\getDefaultHostingSite.js:8:21)
+    at async requireHostingSite (C:\Users\admin\AppData\Roaming\npm\node_modules\firebase-tools\lib\requireHostingSite.js:9:18)
+    at async Object.fn (C:\Users\admin\AppData\Roaming\npm\node_modules\firebase-tools\lib\commands\deploy.js:74:9)
+    at async C:\Users\admin\AppData\Roaming\npm\node_modules\firebase-tools\lib\command.js:214:17
+[error] 
+[error] Error: Failed to get Firebase project web-admin-72f48. Please make sure the project exists and your account has permission to access it.
+[debug] [2022-10-08T03:15:01.554Z] ----------------------------------------------------------------------
+[debug] [2022-10-08T03:15:01.556Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\admin\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2022-10-08T03:15:01.556Z] CLI Version:   11.9.0
+[debug] [2022-10-08T03:15:01.556Z] Platform:      win32
+[debug] [2022-10-08T03:15:01.556Z] Node Version:  v16.17.0
+[debug] [2022-10-08T03:15:01.557Z] Time:          Sat Oct 08 2022 08:45:01 GMT+0530 (India Standard Time)
+[debug] [2022-10-08T03:15:01.557Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-10-08T03:15:01.605Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-10-08T03:15:01.605Z] > authorizing via signed-in user (rohanrohokale1234@gmail.com)
+[debug] [2022-10-08T03:15:01.605Z] [iam] checking project web-admin-72f48 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2022-10-08T03:15:01.606Z] > refreshing access token with scopes: []
+[debug] [2022-10-08T03:15:01.608Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2022-10-08T03:15:01.608Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2022-10-08T03:15:01.995Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2022-10-08T03:15:01.995Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2022-10-08T03:15:02.017Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/web-admin-72f48:testIamPermissions [none]
+[debug] [2022-10-08T03:15:02.017Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/web-admin-72f48:testIamPermissions x-goog-quota-user=projects/web-admin-72f48
+[debug] [2022-10-08T03:15:02.018Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/web-admin-72f48:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-10-08T03:15:04.038Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/web-admin-72f48:testIamPermissions 200
+[debug] [2022-10-08T03:15:04.038Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/web-admin-72f48:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-10-08T03:15:04.040Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/web-admin-72f48 [none]
