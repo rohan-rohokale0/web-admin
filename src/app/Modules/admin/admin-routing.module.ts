@@ -5,6 +5,7 @@ import { AddProductComponent } from './Components/add-product/add-product.compon
 import { CategoryListComponent } from './Components/category-list/category-list.component';
 import { DashboardComponent } from './Components/dashboard/dashboard.component';
 import { ProductListComponent } from './Components/product-list/product-list.component';
+import { TimelistComponent } from './Components/timelist/timelist.component';
 
 const routes: Routes = [
   {
@@ -33,7 +34,7 @@ const routes: Routes = [
   children:[
     {
       path:'',component:CategoryListComponent
-    }
+    },
   ]
 }
 ];

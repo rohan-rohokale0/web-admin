@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { FirestoreService } from 'src/app/Modules/shared/Services/firestore.service';
+import { ExportService } from '../../Services/export.service';
 import { AddCategoryComponent } from '../add-category/add-category.component';
 
 @Component({
@@ -15,9 +16,11 @@ export class DashboardComponent implements OnInit {
   collectionPath = '';
   usersDetails: any;
   BasicDetails: any;
+  customers: any = [];
   constructor(
     private formBuilder: FormBuilder,
     public dialog: MatDialog,
+    private exportService:ExportService,
     private firestoreService: FirestoreService
   ) {
     this.userName = JSON.parse(sessionStorage.getItem('user')!);
@@ -35,6 +38,10 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.getBasicDetails();
+    for (let i = 0; i <= 25; i++) {
+      this.customers.push({firstName: `first${i}`, lastName: `last${i}`,
+      email: `abc${i}@gmail.com`, address: `000${i} street city, ST`, zipcode: `0000${i}`});
+    }
   }
   addInfo(): void {
     const dialogRef = this.dialog.open(AddCategoryComponent, {
@@ -43,6 +50,9 @@ export class DashboardComponent implements OnInit {
     dialogRef.afterClosed().subscribe((result: any) => {
       console.log('The dialog was closed');
     });
+  }
+  export() {
+    this.exportService.exportExcel(this.customers, 'customers');
   }
   getBasicDetails() {
     const that = this;
