@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { TimelistComponent } from './Modules/admin/Components/timelist/timelist.component';
 import { SignInComponent } from './Modules/auth/Compoents/sign-in/sign-in.component';
 import { WorkingComponent } from './working/working.component';
 
@@ -11,6 +12,9 @@ const routes: Routes = [
   },
   {
     path: 'auth/sign-in', component: SignInComponent
+  },
+  {
+    path:'timelist', component:TimelistComponent
   },
   {
     path: 'auth',

@@ -12,6 +12,8 @@ import { CategoryListComponent } from './Components/category-list/category-list.
 import { AddProductComponent } from './Components/add-product/add-product.component';
 import { AddCategoryComponent } from './Components/add-category/add-category.component';
 import { ImageCropperModule } from 'ngx-image-cropper';
+import { TimelistComponent } from './Components/timelist/timelist.component';
+import { ExportDirective } from './Direactives/export.directive';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,8 @@ import { ImageCropperModule } from 'ngx-image-cropper';
     CategoryListComponent,
     AddProductComponent,
     AddCategoryComponent,
+    TimelistComponent,
+    ExportDirective,
   ],
   imports: [CommonModule, AdminRoutingModule, SharedModule, ImageCropperModule],
 })

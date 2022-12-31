@@ -13,20 +13,14 @@
                   You have done <span class="fw-bold">72</span> hours work.
                   Please Check your your profile.
                 </p>
-                <a href="javascript:;" class="btn btn-sm btn-outline-primary"
-                  >View Profile</a
-                >
+                <a href="javascript:;" class="btn btn-sm btn-outline-primary">View Profile</a>
               </div>
             </div>
             <div class="col-sm-5 text-center text-sm-left">
               <div class="card-body pb-0 px-0 px-md-4">
-                <img
-                  src="../../../../../assets/illustrations/man-with-laptop-light.png"
-                  height="140"
-                  alt="View Badge User"
-                  data-app-dark-img="illustrations/man-with-laptop-dark.png"
-                  data-app-light-img="illustrations/man-with-laptop-light.png"
-                />
+                <img src="../../../../../assets/illustrations/man-with-laptop-light.png" height="140"
+                  alt="View Badge User" data-app-dark-img="illustrations/man-with-laptop-dark.png"
+                  data-app-light-img="illustrations/man-with-laptop-light.png" />
               </div>
             </div>
           </div>
@@ -37,10 +31,7 @@
 </div>
 <hr style="height: 1px; border-width: 0; color: gray; background-color: gray" />
 <mat-accordion>
-  <mat-expansion-panel
-    (opened)="panelOpenState = true"
-    (closed)="panelOpenState = false"
-  >
+  <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
     <mat-expansion-panel-header>
       <mat-panel-title> Basic Details </mat-panel-title>
     </mat-expansion-panel-header>
@@ -72,9 +63,51 @@
     </div>
   </mat-expansion-panel>
 </mat-accordion>
+<hr style="height: 1px; border-width: 0; color: gray; background-color: gray" />
+
+<mat-card>
+  <div class="col flex justify-content-end flex-wrap">
+    <button mat-raised-button color="primary" (click)="addInfo()">
+      + Add Info
+    </button>
+  </div>
+  <mat-tab-group dynamicHeight>
+    <mat-tab label="Summary">
+      <div class="example-small-box mat-elevation-z4">
+        Summary
+      </div>
+    </mat-tab>
+    <mat-tab label="Details">
+      <mat-card class="col-12" style="margin: 5px;">
+        <div class="col flex justify-content-end flex-wrap">
+          <a href="javascript:;" class="btn btn-sm btn-outline-success" [appExport]="customers" fileName="customers">+ Export Excel</a>
+        </div>
+        <app-timelist [customers]="customers">
+        </app-timelist>
+      </mat-card>
+    </mat-tab>
+  </mat-tab-group>
+</mat-card>
+
+
+
+<!-- <div class="row">
+  <div class="col-md-9">
+    <h2>Customers </h2>
+  </div>
+  <div class="col-md-3">
+    <button type="button" [appExport]="customers" fileName="customers" class="btn btn-danger">
+      Export
+    </button>
+  </div>
+</div>
+
+<app-timelist [customers]="customers">
+</app-timelist>
+
 
 <div class="col flex justify-content-end flex-wrap">
   <button mat-raised-button color="primary" (click)="addInfo()">
     + Add Info
   </button>
-</div>
+</div> -->
