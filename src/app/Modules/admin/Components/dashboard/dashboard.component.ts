@@ -23,6 +23,7 @@ export class DashboardComponent implements OnInit {
     this.userName = JSON.parse(sessionStorage.getItem('user')!);
     this.usersDetails = JSON.parse(localStorage.getItem('user')!);
     console.log(this.usersDetails.uid);
+    debugger
     this.collectionPath =
       'Owner' +
       '/' +

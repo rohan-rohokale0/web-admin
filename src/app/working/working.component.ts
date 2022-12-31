@@ -34,6 +34,7 @@ export class WorkingComponent implements OnInit {
   logOut() {
     localStorage.clear();
     sessionStorage.clear();
+    localStorage.removeItem("user");
     this.router.navigate(['/auth/sign-in']);
   }
 }
