@@ -1,9 +1,12 @@
-<mat-drawer-container>
+<!-- <mat-drawer-container>
   <mat-drawer mode="side" opened="true">
     <mat-nav-list>
       <h2 matSubheader class="mt-2">EverExpanse</h2>
       <a mat-list-item routerLinkActive="active" routerLink="/admin/dashboard">
-        <mat-icon>dashboard</mat-icon> TimeSheet
+        <mat-icon>dashboard</mat-icon> Dashbaord
+      </a>
+      <a mat-list-item routerLink="/admin/dashboard">
+        <mat-icon>dashboard</mat-icon> Dashbaord
       </a>
   
    
@@ -15,7 +18,6 @@
         <h1>TIME-SHEET</h1>
         <span class="example-spacer"></span>
         <button mat-icon-button>
-          <!-- <mat-icon style="margin-right: 2px;">notifications</mat-icon> -->
         </button>
         <button mat-stroked-button [matMenuTriggerFor]="menu" #menuTrigger="matMenuTrigger"
           (click)="menuTrigger.openMenu()">
@@ -42,4 +44,107 @@
       <router-outlet></router-outlet>
     </div>
   </mat-drawer-content>
-</mat-drawer-container>
+</mat-drawer-container> -->
+
+
+<mat-toolbar color="primary" class="example-toolbar">
+  <mat-toolbar-row>
+	<button mat-icon-button (click)="isExpanded = !isExpanded"><mat-icon>menu</mat-icon></button>
+	<h1 class="example-app-name">E-Commerce Admin</h1>
+
+  <span class="example-spacer"></span>
+  <button mat-icon-button>
+  </button>
+  <button mat-stroked-button [matMenuTriggerFor]="menu" #menuTrigger="matMenuTrigger"
+    (click)="menuTrigger.openMenu()">
+    <mat-icon style="margin-right: 5px;">account_circle</mat-icon> Rohan Rohokale
+  </button>
+  <span class="fill-remaining-space">
+    <mat-menu #menu="matMenu" [overlapTrigger]="false">
+      <span (mouseleave)="menuTrigger.closeMenu()">
+        <button mat-menu-item>
+          <mat-icon>account_box</mat-icon>
+          <span>My Profile</span>
+        </button>
+        <button mat-menu-item (click)="logOut()">
+          <mat-icon>exit_to_app</mat-icon>
+          <span>Logout</span>
+        </button>
+      </span>
+    </mat-menu>
+  </span>
+
+  </mat-toolbar-row>
+</mat-toolbar>
+<mat-sidenav-container class="example-container" autosize>
+	<mat-sidenav #sidenav class="example-sidenav" mode="side" opened="true" (mouseenter)="mouseenter()" (mouseleave)="mouseleave()">
+    <mat-nav-list>
+  		<mat-list-item (click)="showSubmenu = !showSubmenu" class="parent" routerLinkActive="active" routerLink="/admin/dashboard">
+        <mat-icon mat-list-icon>dashboard</mat-icon> 
+        <span class="full-width" *ngIf="isExpanded || isShowing">Dashbaord</span>
+			</mat-list-item>
+    </mat-nav-list>
+
+    
+    <mat-nav-list>
+
+      <mat-nav-list>
+        <mat-list-item (click)="showSubmenu = !showSubmenu" class="parent" routerLinkActive="active" routerLink="/admin/category">
+        
+          <mat-icon mat-list-icon> category</mat-icon>
+          <span class="full-width" *ngIf="isExpanded || isShowing">Category</span>
+        </mat-list-item>
+      </mat-nav-list>
+
+      <mat-nav-list>
+        <mat-list-item (click)="showSubmenu = !showSubmenu" class="parent" routerLinkActive="active" routerLink="/admin/product">
+        
+          <mat-icon mat-list-icon>Product</mat-icon> 
+          <span class="full-width" *ngIf="isExpanded || isShowing">Product</span>
+        </mat-list-item>
+      </mat-nav-list>
+
+      <mat-nav-list>
+        <mat-list-item (click)="showSubmenu = !showSubmenu" class="parent" routerLinkActive="active" routerLink="/admin/orders">
+        
+          <mat-icon mat-list-icon>Orders</mat-icon> 
+          <span class="full-width" *ngIf="isExpanded || isShowing">Orders</span>
+        </mat-list-item>
+      </mat-nav-list>
+  
+
+      <mat-nav-list>
+        <mat-list-item (click)="showSubmenu = !showSubmenu" class="parent" routerLinkActive="active" routerLink="/admin/customers">
+        
+          <mat-icon mat-list-icon>Customers</mat-icon> 
+          <span class="full-width" *ngIf="isExpanded || isShowing">Customers</span>
+        </mat-list-item>
+      </mat-nav-list>
+
+
+      <mat-nav-list>
+        <mat-list-item (click)="showSubmenu = !showSubmenu" class="parent" routerLinkActive="active" routerLink="/admin/reviews">
+        
+          <mat-icon mat-list-icon>Reviews</mat-icon> 
+          <span class="full-width" *ngIf="isExpanded || isShowing">Reviews</span>
+        </mat-list-item>
+      </mat-nav-list>
+
+
+      
+      <mat-nav-list>
+        <mat-list-item (click)="showSubmenu = !showSubmenu" class="parent" routerLinkActive="active" routerLink="/admin/transactions">
+      
+          <mat-icon mat-list-icon>Transactions</mat-icon> 
+          <span class="full-width" *ngIf="isExpanded || isShowing">Transactions</span>
+        </mat-list-item>
+      </mat-nav-list>
+  
+      
+
+</mat-nav-list>
+	</mat-sidenav>
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
+</mat-sidenav-container>

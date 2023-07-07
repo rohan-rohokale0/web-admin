@@ -14,7 +14,7 @@ export class WorkingComponent implements OnInit {
   showSubSubMenu: boolean = false;
   userName: any;
   constructor(private router: Router) {
-    this.userName = JSON.parse(sessionStorage.getItem('user')!);
+    //this.userName = JSON.parse(sessionStorage.getItem('user')!);
   }
   mouseenter() {
     if (!this.isExpanded) {

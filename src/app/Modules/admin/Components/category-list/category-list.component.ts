@@ -16,101 +16,49 @@ import { AddCategoryComponent } from '../add-category/add-category.component';
   styleUrls: ['./category-list.component.scss'],
 })
 export class CategoryListComponent implements OnInit {
-  collectionPath = '';
-  user: any;
-  categoryList: any[] = [];
-  CategoryListComponent: any;
-  constructor(
-    private router: Router,
-    public dialog: MatDialog,
-    private firestoreService: FirestoreService,
-    private toastr: ToastrService,
-    private spinner: NgxSpinnerService,
-    private firestore: AngularFirestore
-  ) {
-    this.user = JSON.parse(sessionStorage.getItem('users')!);
-    this.collectionPath = 'Owner' + '/' + this.user.id + '/' + 'Category';
-  }
   ngOnInit(): void {
-    this.getCategoryList();
+    
   }
+  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+  dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
 
-  isLoading = false;
-  totalRows = 0;
-  pageSize = 5;
-  currentPage = 0;
-  pageSizeOptions: number[] = [5, 10, 25, 100];
-  displayedColumns: string[] = ['name', 'action'];
-  dataSource: any;
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  ngAfterViewInit() {}
-
-  addCategory(): void {
-    const dialogRef = this.dialog.open(AddCategoryComponent, {
-      width: '400px',
-    });
-    dialogRef.afterClosed().subscribe((result: any) => {
-      this.getCategoryList();
-    });
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
   }
-
-  getCategoryList() {
-    debugger;
-    this.firestore
-      .collection(this.collectionPath, (ref) =>
-        ref.limit(10).orderBy('createdAt', 'desc')
-      )
-      .get()
-      .subscribe(
-        (response) => {
-          for (const item of response.docs) {
-            const docData: any = item.data();
-            docData.id = item.id;
-            this.categoryList.push(docData);
-          }
-          this.dataSource = this.categoryList;
-          this.dataSource.paginator = this.paginator;
-        },
-        (error) => {
-          console.log(error);
-        }
-      );
-  }
-
-  nextCategoryList() {
-    const startAfter =
-      this.categoryList[this.categoryList.length - 1].createdAt;
-    if (this.categoryList.length % 6 === 0) {
-      this.firestore
-        .collection(this.collectionPath, (ref) =>
-          ref.orderBy('createdAt', 'desc').startAfter(startAfter)
-        )
-        .get()
-        .subscribe((response) => {
-          for (const item of response.docs) {
-            const docData: any = item.data();
-            docData.id = item.id;
-            this.categoryList.push(docData);
-          }
-          // this.ktGridComponent.refreshList();
-        });
-    }
-  }
-  editCategory(id: any) {
-    console.log(id);
-  }
-  deleteCategory(id: any) {
-    this.firestoreService
-      .deleteCollectionDataById(this.collectionPath, id)
-      .then((result) => {
-        this.toastr.success('Category deleted successfully.');
-        this.getCategoryList();
-      });
+  workingFine()
+  {
+    debugger
   }
 }
 
 export interface PeriodicElement {
   name: string;
-  action: any;
+  position: number;
+  weight: number;
+  symbol: string;
 }
+
+const ELEMENT_DATA: PeriodicElement[] = [
+  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
+  {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
+  {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
+  {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
+  {position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},
+  {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C'},
+  {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N'},
+  {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},
+  {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
+  {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
+  {position: 11, name: 'Sodium', weight: 22.9897, symbol: 'Na'},
+  {position: 12, name: 'Magnesium', weight: 24.305, symbol: 'Mg'},
+  {position: 13, name: 'Aluminum', weight: 26.9815, symbol: 'Al'},
+  {position: 14, name: 'Silicon', weight: 28.0855, symbol: 'Si'},
+  {position: 15, name: 'Phosphorus', weight: 30.9738, symbol: 'P'},
+  {position: 16, name: 'Sulfur', weight: 32.065, symbol: 'S'},
+  {position: 17, name: 'Chlorine', weight: 35.453, symbol: 'Cl'},
+  {position: 18, name: 'Argon', weight: 39.948, symbol: 'Ar'},
+  {position: 19, name: 'Potassium', weight: 39.0983, symbol: 'K'},
+  {position: 20, name: 'Calcium', weight: 40.078, symbol: 'Ca'},
+];

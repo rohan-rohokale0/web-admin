@@ -1,7 +1,7 @@
 import {
-  CUSTOM_ELEMENTS_SCHEMA,
+ 
+  NgModule, CUSTOM_ELEMENTS_SCHEMA,
   ModuleWithProviders,
-  NgModule,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MaterialModule } from './package_files/material_module';
@@ -22,7 +22,7 @@ import { FirestoreService } from './Services/firestore.service';
     CardModule,
     FormsModule,
     ReactiveFormsModule,
-    NgxChartsModule,
+    
     
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -31,7 +31,7 @@ import { FirestoreService } from './Services/firestore.service';
     CardModule,
     FormsModule,
     PhoneNumberDirective,
-    NgxChartsModule,
+    
     ImageCropperComponent,
     ReactiveFormsModule,
     

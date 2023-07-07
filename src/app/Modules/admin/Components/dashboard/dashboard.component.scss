@@ -38,3 +38,40 @@
     height: 300px;
     width: 300px;
   }
+
+  .page-title-box h4 {
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 16px!important;
+}
+
+// .card {
+//   margin-bottom: 24px;
+//   box-shadow: 0 0.75rem 1.5rem #12263f08;
+// }
+.overflow-hidden {
+  overflow: hidden!important;
+}
+
+
+.bg-primary.bg-soft {
+  background-color: #556ee640!important;
+}
+.text-primary {
+  --bs-text-opacity: 1;
+  color: rgba(var(--bs-primary-rgb),var(--bs-text-opacity))!important;
+}
+
+.p-3 {
+  padding: 1rem!important;
+}
+.container
+{
+background-color: #f8f9fc;
+width: 100%;
+overflow-x: hidden;
+}
+
+.card-body {
+  padding: 0px 25px;
+}

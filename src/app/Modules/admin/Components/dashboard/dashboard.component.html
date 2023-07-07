@@ -1,4 +1,4 @@
-<div class="content-wrapper">
+<!-- <div class="content-wrapper">
   <div class="container-xxl flex-grow-1 container-p-y">
     <div class="row">
       <div class="col-lg-12 mb-4 order-0">
@@ -28,9 +28,9 @@
       </div>
     </div>
   </div>
-</div>
-<hr style="height: 1px; border-width: 0; color: gray; background-color: gray" />
-<mat-accordion>
+</div> -->
+<!-- <hr style="height: 1px; border-width: 0; color: gray; background-color: gray" /> -->
+<!-- <mat-accordion>
   <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
     <mat-expansion-panel-header>
       <mat-panel-title> Basic Details </mat-panel-title>
@@ -62,9 +62,9 @@
       </div>
     </div>
   </mat-expansion-panel>
-</mat-accordion>
-<hr style="height: 1px; border-width: 0; color: gray; background-color: gray" />
-
+</mat-accordion> -->
+<!-- <hr style="height: 1px; border-width: 0; color: gray; background-color: gray" /> -->
+<!-- 
 <mat-card>
   <div class="col flex justify-content-end flex-wrap">
     <button mat-raised-button color="primary" (click)="addInfo()">
@@ -87,27 +87,156 @@
       </mat-card>
     </mat-tab>
   </mat-tab-group>
-</mat-card>
+</mat-card> -->
 
-
-
-<!-- <div class="row">
-  <div class="col-md-9">
-    <h2>Customers </h2>
+<!-- <div class="content-wrapper">
+  <div class="container-xxl flex-grow-1 container-p-y">
+<app-pie-chart></app-pie-chart>
+</div>
+</div> -->
+<div class="container-fluid">
+  <!-- Page Heading -->
+  <div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+    <!-- <a
+      href="#"
+      class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"
+      ><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a
+    > -->
   </div>
-  <div class="col-md-3">
-    <button type="button" [appExport]="customers" fileName="customers" class="btn btn-danger">
-      Export
-    </button>
+
+  <!-- Content Row -->
+  <div class="row">
+    <div class="col-xl-3 col-md-6 mb-4">
+      <div class="card border-left-primary shadow h-100 py-2">
+        <div class="card-body">
+          <div class="row no-gutters align-items-center">
+            <div class="col mr-2">
+              <div
+                class="text-xs font-weight-bold text-primary text-uppercase mb-1"
+              >
+              Total Product
+              </div>
+              <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
+            </div>
+            <div class="col-auto">
+              
+              <i class="fas fa-calendar fa-2x text-gray-300"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-3 col-md-6 mb-4">
+      <div class="card border-left-success shadow h-100 py-2">
+        <div class="card-body">
+          <div class="row no-gutters align-items-center">
+            <div class="col mr-2">
+              <div
+                class="text-xs font-weight-bold text-success text-uppercase mb-1"
+              >
+                Total Order
+              </div>
+              <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
+            </div>
+            <div class="col-auto">
+              <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-3 col-md-6 mb-4">
+      <div class="card border-left-info shadow h-100 py-2">
+        <div class="card-body">
+          <div class="row no-gutters align-items-center">
+            <div class="col mr-2">
+              <div
+                class="text-xs font-weight-bold text-info text-uppercase mb-1"
+              >
+                Total Transactions
+              </div>
+              <div class="row no-gutters align-items-center">
+                <div class="col-auto">
+                  <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">
+                    50%
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="progress progress-sm mr-2">
+                    <div
+                      class="progress-bar bg-info"
+                      role="progressbar"
+                      style="width: 50%"
+                      aria-valuenow="50"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-auto">
+              <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-3 col-md-6 mb-4">
+      <div class="card border-left-info shadow h-100 py-2">
+        <div class="card-body">
+          <div class="row no-gutters align-items-center">
+            <div class="col mr-2">
+              <div
+                class="text-xs font-weight-bold text-warning text-info text-uppercase mb-1"
+              >
+                Total Return Order
+              </div>
+              <div class="row no-gutters align-items-center">
+                <div class="col-auto">
+                  <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">
+                    50%
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="progress progress-sm mr-2">
+                    <div
+                      class="progress-bar bg-info"
+                      role="progressbar"
+                      style="width: 50%"
+                      aria-valuenow="50"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-auto">
+              <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+ 
+    <div class="row">
+     
+        <div class="col">
+          <mat-card>
+            <app-bar-chart></app-bar-chart>
+          </mat-card>
+        </div>
+        <div class="col">
+          <mat-card>
+            <app-pie-chart></app-pie-chart>
+          </mat-card>
+        </div>
+      
+    </div>
   </div>
 </div>
 
-<app-timelist [customers]="customers">
-</app-timelist>
-
-
-<div class="col flex justify-content-end flex-wrap">
-  <button mat-raised-button color="primary" (click)="addInfo()">
-    + Add Info
-  </button>
-</div> -->

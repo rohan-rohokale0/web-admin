@@ -4,6 +4,7 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { FirestoreService } from 'src/app/Modules/shared/Services/firestore.service';
 import { ExportService } from '../../Services/export.service';
 import { AddCategoryComponent } from '../add-category/add-category.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -17,24 +18,18 @@ export class DashboardComponent implements OnInit {
   usersDetails: any;
   BasicDetails: any;
   customers: any = [];
+  RouterLink='';
   constructor(
     private formBuilder: FormBuilder,
     public dialog: MatDialog,
     private exportService:ExportService,
-    private firestoreService: FirestoreService
+    private firestoreService: FirestoreService,
+   private  router: Router
+    
   ) {
-    this.userName = JSON.parse(sessionStorage.getItem('user')!);
-    this.usersDetails = JSON.parse(localStorage.getItem('user')!);
-    console.log(this.usersDetails.uid);
+    router.events.subscribe((url:any) => console.log(url));
+    console.log(router.url); 
     debugger
-    this.collectionPath =
-      'Owner' +
-      '/' +
-      this.usersDetails.uid +
-      '/' +
-      'BasicInfromation' +
-      '/' +
-      this.usersDetails.uid;
   }
 
   ngOnInit(): void {

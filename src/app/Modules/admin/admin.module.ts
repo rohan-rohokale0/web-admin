@@ -14,6 +14,10 @@ import { AddCategoryComponent } from './Components/add-category/add-category.com
 import { ImageCropperModule } from 'ngx-image-cropper';
 import { TimelistComponent } from './Components/timelist/timelist.component';
 import { ExportDirective } from './Direactives/export.directive';
+import { OrdersComponent } from './Components/orders/orders.component';
+import { CustomersComponent } from './Components/customers/customers.component';
+import { RevievsComponent } from './Components/revievs/revievs.component';
+import { TransactionsComponent } from './Components/transactions/transactions.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +31,10 @@ import { ExportDirective } from './Direactives/export.directive';
     AddCategoryComponent,
     TimelistComponent,
     ExportDirective,
+    OrdersComponent,
+    CustomersComponent,
+    RevievsComponent,
+    TransactionsComponent,
   ],
   imports: [CommonModule, AdminRoutingModule, SharedModule, ImageCropperModule],
 })

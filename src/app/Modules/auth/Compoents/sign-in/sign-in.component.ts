@@ -22,7 +22,8 @@ export class SignInComponent implements OnInit {
     private authService: AuthService,
     private angularFireAuth: AngularFireAuth,
     private spinner: NgxSpinnerService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private _snackBar: MatSnackBar
   ) {}
 
   ngOnInit(): void {
@@ -86,13 +87,18 @@ export class SignInComponent implements OnInit {
                     }
                     ;
                     this.spinner.hide();
-                    this.toastr.success('You successfully logged in!');
+                this._snackBar.open('You successfully logged in!', 'Cancel', {
+                      duration: 3000
+                    }); 
                   }
                 }
               });
           } else {
             this.spinner.hide();
-            this.toastr.error('Your email is not Verified. Please verify');
+            this._snackBar.open('Your email is not Verified. Please verify', 'Cancel', {
+              duration: 3000
+            }); 
+          
           }
         })
         .catch((err: any) => {

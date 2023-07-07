@@ -20,6 +20,13 @@ export class AuthGuard implements CanActivate {
       debugger
       this.router.navigate(['/auth/sign-in']);
     }
+    else{
+      debugger
+    }
+    // else{
+    //   this.router.navigate(['/admin/dashboard']);
+
+    // }
     return true;
   }
 
