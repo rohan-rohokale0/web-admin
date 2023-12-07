@@ -45,66 +45,68 @@ export class SignInComponent implements OnInit {
   login() {
     if (this.SignInForm.valid) {
       this.spinner.show();
-      this.angularFireAuth
-        .signInWithEmailAndPassword(
-          this.SignInForm.controls['email'].value,
-          this.SignInForm.controls['password'].value
-        )
-        .then((result: any) => {
-          if (result.user.emailVerified) {
-            this.authService
-              .getCollectionDataById('DatabaseLogin', result.user.uid)
-              .subscribe((snapshot: any) => {
-                debugger
-                const userToken = {
-                  fcmToken: sessionStorage.getItem('fcmToken'),
-                };
-                if (snapshot.exists) {
-                  debugger
-                  const data: any = snapshot.data();
-                  data.id = snapshot.id;
-                  if (data.status) {
-                    debugger;
-                    this.authService.updateCollectionDataById(
-                      'DatabaseLogin',
-                      snapshot.id,
-                      userToken
-                    );
-                    sessionStorage.setItem(
-                      'fcmToken',
-                      result.user.refreshToken
-                    );
-                    const firstName = data.firstName;
-                    const lastName = data.lastName;
-                    const localData = {
-                      firstName,
-                      lastName,
-                    };
-                    sessionStorage.setItem('user', JSON.stringify(localData));
-                    sessionStorage.setItem('users', JSON.stringify(data));
-                    if (data.userRole === '2') {
-                      this.router.navigate(['/admin/dashboard']);
-                    }
-                    ;
-                    this.spinner.hide();
-                this._snackBar.open('You successfully logged in!', 'Cancel', {
-                      duration: 3000
-                    }); 
-                  }
-                }
-              });
-          } else {
-            this.spinner.hide();
-            this._snackBar.open('Your email is not Verified. Please verify', 'Cancel', {
-              duration: 3000
-            }); 
+      this.router.navigate(['/admin/dashboard']);
+      this.spinner.hide();
+      // this.angularFireAuth
+      //   .signInWithEmailAndPassword(
+      //     this.SignInForm.controls['email'].value,
+      //     this.SignInForm.controls['password'].value
+      //   )
+      //   .then((result: any) => {
+      //     if (result.user.emailVerified) {
+      //       this.authService
+      //         .getCollectionDataById('DatabaseLogin', result.user.uid)
+      //         .subscribe((snapshot: any) => {
+      //           debugger
+      //           const userToken = {
+      //             fcmToken: sessionStorage.getItem('fcmToken'),
+      //           };
+      //           if (snapshot.exists) {
+      //             debugger
+      //             const data: any = snapshot.data();
+      //             data.id = snapshot.id;
+      //             if (data.status) {
+      //               debugger;
+      //               this.authService.updateCollectionDataById(
+      //                 'DatabaseLogin',
+      //                 snapshot.id,
+      //                 userToken
+      //               );
+      //               sessionStorage.setItem(
+      //                 'fcmToken',
+      //                 result.user.refreshToken
+      //               );
+      //               const firstName = data.firstName;
+      //               const lastName = data.lastName;
+      //               const localData = {
+      //                 firstName,
+      //                 lastName,
+      //               };
+      //               sessionStorage.setItem('user', JSON.stringify(localData));
+      //               sessionStorage.setItem('users', JSON.stringify(data));
+      //               if (data.userRole === '2') {
+      //                 this.router.navigate(['/admin/dashboard']);
+      //               }
+      //               ;
+      //               this.spinner.hide();
+      //           this._snackBar.open('You successfully logged in!', 'Cancel', {
+      //                 duration: 3000
+      //               }); 
+      //             }
+      //           }
+      //         });
+      //     } else {
+      //       this.spinner.hide();
+      //       this._snackBar.open('Your email is not Verified. Please verify', 'Cancel', {
+      //         duration: 3000
+      //       }); 
           
-          }
-        })
-        .catch((err: any) => {
-          this.spinner.hide();
-          this.toastr.error(err.message);
-        });
+      //     }
+      //   })
+      //   .catch((err: any) => {
+      //     this.spinner.hide();
+      //     this.toastr.error(err.message);
+      //   });
     }
   }
 }
